@@ -1,0 +1,246 @@
+--base schema
+CREATE INDEX IF NOT EXISTS idx_geo_analysis_grid_geom
+ON base.geo_analysis_grid USING gist (geom);
+
+--capture schema
+CREATE INDEX IF NOT EXISTS idx_tbl_event_speno
+ON capture.tbl_event (speno);
+CREATE INDEX IF NOT EXISTS idx_tbl_event_id
+ON capture.tbl_event (id);
+
+CREATE INDEX IF NOT EXISTS idx_tbl_drug_event_id
+ON capture.tbl_drug (event_id);
+
+CREATE INDEX IF NOT EXISTS idx_tbl_morph_event_id
+ON capture.tbl_morph (event_id);
+
+CREATE INDEX IF NOT EXISTS idx_tbl_photos_event_id
+ON capture.tbl_photos (event_id);
+
+CREATE INDEX IF NOT EXISTS idx_tbl_sample_event_id
+ON capture.tbl_sample (event_id);
+
+CREATE INDEX IF NOT EXISTS idx_tbl_tissue_event_id
+ON capture.tbl_tissue (event_id);
+
+--environ schema (all created during import)
+
+--stock schema 
+CREATE INDEX IF NOT EXISTS idx_geo_dist_bd_geom
+ON stock.geo_dist_bd USING gist (geom);
+
+CREATE INDEX IF NOT EXISTS idx_geo_dist_pv_geom
+ON stock.geo_dist_pv USING gist (geom);
+
+CREATE INDEX IF NOT EXISTS idx_geo_dist_rd_geom
+ON stock.geo_dist_rd USING gist (geom);
+
+CREATE INDEX IF NOT EXISTS idx_geo_dist_rn_geom
+ON stock.geo_dist_rn USING gist (geom);
+
+CREATE INDEX IF NOT EXISTS idx_geo_dist_sd_geom
+ON stock.geo_dist_sd USING gist (geom);
+
+--surv_boss schema
+CREATE INDEX IF NOT EXISTS idx_geo_tracks_geom
+ON surv_boss.geo_tracks USING gist (geom);
+
+CREATE INDEX IF NOT EXISTS idx_geo_tracks_on_effort_geom
+ON surv_boss.geo_tracks_on_effort USING gist (geom);
+
+CREATE INDEX IF NOT EXISTS idx_res_estimate_prelim_geom
+ON surv_boss.res_estimate_prelim USING gist (geom);
+
+CREATE INDEX IF NOT EXISTS idx_tbl_hotspot_detect_thermal_image
+ON surv_boss.tbl_hotspot_detect (thermal_image);
+CREATE INDEX IF NOT EXISTS idx_tbl_hotspot_detect_hotspot_id
+ON surv_boss.tbl_hotspot_detect (hotspot_id);
+CREATE INDEX IF NOT EXISTS idx_tbl_hotspot_detect_hotspot_dt
+ON surv_boss.tbl_hotspot_detect (hotspot_dt);
+
+CREATE INDEX IF NOT EXISTS idx_tbl_hotspot_match_hotspot_id
+ON surv_boss.tbl_hotspot_match (hotspot_id);
+CREATE INDEX IF NOT EXISTS idx_tbl_hotspot_match_hotspot_type
+ON surv_boss.tbl_hotspot_match (hotspot_type);
+CREATE INDEX IF NOT EXISTS idx_tbl_hotspot_match_species_id
+ON surv_boss.tbl_hotspot_match (species_id);
+
+CREATE INDEX IF NOT EXISTS idx_tbl_species_id_species_id
+ON surv_boss.tbl_species_id (species_id);
+CREATE INDEX IF NOT EXISTS idx_tbl_species_id_hotspot_id
+ON surv_boss.tbl_species_id (hotspot_id);
+CREATE INDEX IF NOT EXISTS idx_tbl_species_id_seal_id
+ON surv_boss.tbl_species_id (seal_id);
+
+--surv_chess schema
+CREATE INDEX IF NOT EXISTS idx_geo_track_by_effort_geom
+ON surv_chess.geo_track_by_effort USING gist (geom);
+
+CREATE INDEX IF NOT EXISTS idx_tbl_detect_hotspot_id
+ON surv_chess.tbl_detect (hotspot_id);
+CREATE INDEX IF NOT EXISTS idx_tbl_detect_detect_image_c
+ON surv_chess.tbl_detect (detect_image_c);
+CREATE INDEX IF NOT EXISTS idx_tbl_detect_detect_image_t
+ON surv_chess.tbl_detect (detect_image_t);
+CREATE INDEX IF NOT EXISTS idx_tbl_detect_detect_dt_c
+ON surv_chess.tbl_detect (detect_dt_c);
+CREATE INDEX IF NOT EXISTS idx_tbl_detect_detect_dt_t
+ON surv_chess.tbl_detect (detect_dt_t);
+CREATE INDEX IF NOT EXISTS idx_tbl_detect_geom
+ON surv_chess.tbl_detect USING gist (geom);
+
+CREATE INDEX IF NOT EXISTS idx_tbl_effort_raw_hotspot_id
+ON surv_chess.tbl_effort_raw (hotspot_id);
+CREATE INDEX IF NOT EXISTS idx_tbl_effort_raw_effort_image
+ON surv_chess.tbl_effort_raw (effort_image);
+CREATE INDEX IF NOT EXISTS idx_tbl_effort_raw_effort_dt
+ON surv_chess.tbl_effort_raw (effort_dt);
+CREATE INDEX IF NOT EXISTS idx_tbl_effort_raw_correct_dt
+ON surv_chess.tbl_effort_raw (correct_dt);
+CREATE INDEX IF NOT EXISTS idx_tbl_effort_raw_geom
+ON surv_chess.tbl_effort_raw USING gist (geom);
+
+CREATE INDEX IF NOT EXISTS idx_tbl_filt_filt_image
+ON surv_chess.tbl_filt (filt_image);
+CREATE INDEX IF NOT EXISTS idx_tbl_filt_filt_dt
+ON surv_chess.tbl_filt (filt_dt);
+
+CREATE INDEX IF NOT EXISTS idx_tbl_process_hotspot_id
+ON surv_chess.tbl_process (hotspot_id);
+CREATE INDEX IF NOT EXISTS idx_tbl_process_species_id
+ON surv_chess.tbl_process (species_id);
+CREATE INDEX IF NOT EXISTS idx_tbl_process_hotspot_type
+ON surv_chess.tbl_process (hotspot_type);
+CREATE INDEX IF NOT EXISTS idx_tbl_process_age_class
+ON surv_chess.tbl_process (age_class);
+CREATE INDEX IF NOT EXISTS idx_tbl_process_process_image_c
+ON surv_chess.tbl_process (process_image_c);
+CREATE INDEX IF NOT EXISTS idx_tbl_process_process_image_t
+ON surv_chess.tbl_process (process_image_c);
+CREATE INDEX IF NOT EXISTS idx_tbl_process_process_dt_c
+ON surv_chess.tbl_process (process_dt_c);
+CREATE INDEX IF NOT EXISTS idx_tbl_process_process_dt_t
+ON surv_chess.tbl_process (process_dt_c);
+CREATE INDEX IF NOT EXISTS idx_tbl_process_geom
+ON surv_chess.tbl_process USING gist (geom);
+
+CREATE INDEX IF NOT EXISTS idx_tbl_unfilt_unfilt_image
+ON surv_chess.tbl_unfilt (unfilt_image);
+CREATE INDEX IF NOT EXISTS idx_tbl_unfilt_unfilt_dt
+ON surv_chess.tbl_unfilt (unfilt_dt);
+
+CREATE INDEX IF NOT EXISTS idx_tbl_valid_hotspot_id
+ON surv_chess.tbl_valid (hotspot_id);
+CREATE INDEX IF NOT EXISTS idx_tbl_valid_geom
+ON surv_chess.tbl_valid USING gist (geom);
+
+--surv_pv_cst schema
+CREATE INDEX IF NOT EXISTS idx_geo_haulout_geom
+ON surv_pv_cst.geo_haulout USING gist (geom);
+CREATE INDEX IF NOT EXISTS idx_geo_haulout_polyid
+ON surv_pv_cst.geo_haulout (polyid);
+CREATE INDEX IF NOT EXISTS idx_geo_haulout_name
+ON surv_pv_cst.geo_haulout (name);
+
+CREATE INDEX IF NOT EXISTS idx_geo_image_count_image_name
+ON surv_pv_cst.geo_image_count (image_name);
+CREATE INDEX IF NOT EXISTS idx_geo_image_count_point_type_lku
+ON surv_pv_cst.geo_image_count (point_type_lku);
+CREATE INDEX IF NOT EXISTS idx_geo_image_count_num_seals
+ON surv_pv_cst.geo_image_count (num_seals);
+CREATE INDEX IF NOT EXISTS idx_geo_image_count_geom
+ON surv_pv_cst.geo_image_count USING gist (geom);
+
+CREATE INDEX IF NOT EXISTS idx_geo_polys_polyid
+ON surv_pv_cst.geo_polys (polyid);
+CREATE INDEX IF NOT EXISTS idx_geo_polys_geom
+ON surv_pv_cst.geo_polys USING gist (geom);
+
+CREATE INDEX IF NOT EXISTS idx_geo_track_lines_trackid
+ON surv_pv_cst.geo_track_lines (trackid);
+CREATE INDEX IF NOT EXISTS idx_geo_track_lines_geom
+ON surv_pv_cst.geo_track_lines USING gist (geom);
+
+CREATE INDEX IF NOT EXISTS idx_geo_track_pts_trackid
+ON surv_pv_cst.geo_track_pts (trackid);
+CREATE INDEX IF NOT EXISTS idx_geo_track_pts_gps_dt
+ON surv_pv_cst.geo_track_pts (gps_dt);
+CREATE INDEX IF NOT EXISTS idx_geo_track_pts_geom
+ON surv_pv_cst.geo_track_pts USING gist (geom);
+
+CREATE INDEX IF NOT EXISTS idx_tbl_effort_trackid
+ON surv_pv_cst.tbl_effort (trackid);
+CREATE INDEX IF NOT EXISTS idx_tbl_effort_survey_date
+ON surv_pv_cst.tbl_effort (survey_date);
+CREATE INDEX IF NOT EXISTS idx_tbl_effort_polyid
+ON surv_pv_cst.tbl_effort (polyid);
+CREATE INDEX IF NOT EXISTS idx_tbl_effort_effort_type_lku
+ON surv_pv_cst.tbl_effort (effort_type_lku);
+CREATE INDEX IF NOT EXISTS idx_tbl_effort_geom
+ON surv_pv_cst.tbl_effort USING gist (geom);
+
+CREATE INDEX IF NOT EXISTS idx_tbl_image_count_image_name
+ON surv_pv_cst.tbl_image_count (image_name);
+
+CREATE INDEX IF NOT EXISTS idx_tbl_image_exif_image_name
+ON surv_pv_cst.tbl_image_exif (image_name);
+CREATE INDEX IF NOT EXISTS idx_tbl_image_exif_photog_date_id
+ON surv_pv_cst.tbl_image_exif (photog_date_id);
+CREATE INDEX IF NOT EXISTS idx_tbl_image_exif_gps_dt
+ON surv_pv_cst.tbl_image_exif (gps_dt);
+CREATE INDEX IF NOT EXISTS idx_tbl_image_exif_geom
+ON surv_pv_cst.tbl_image_exif USING gist (geom);
+CREATE INDEX IF NOT EXISTS idx_tbl_image_exif_polyid
+ON surv_pv_cst.tbl_image_exif (polyid);
+
+CREATE INDEX IF NOT EXISTS idx_tbl_image_legacy_image_name
+ON surv_pv_cst.tbl_image_legacy (image_name);
+
+CREATE INDEX IF NOT EXISTS idx_tbl_track_trackid
+ON surv_pv_cst.tbl_track (trackid);
+CREATE INDEX IF NOT EXISTS idx_tbl_track_photog_date_id_cat
+ON surv_pv_cst.tbl_track (photog_date_id_cat);
+CREATE INDEX IF NOT EXISTS idx_tbl_track_photog_date_id_dog
+ON surv_pv_cst.tbl_track (photog_date_id_dog);
+CREATE INDEX IF NOT EXISTS idx_tbl_track_photog_date_id_fish
+ON surv_pv_cst.tbl_track (photog_date_id_fish);
+
+--telem schema
+CREATE INDEX IF NOT EXISTS idx_tbl_deploy_id
+ON telem.tbl_deploy (id);
+CREATE INDEX IF NOT EXISTS idx_tbl_deploy_deployid
+ON telem.tbl_deploy (deployid);
+CREATE INDEX IF NOT EXISTS idx_tbl_deploy_deploy_dt
+ON telem.tbl_deploy (deploy_dt);
+CREATE INDEX IF NOT EXISTS idx_tbl_deploy_end_dt
+ON telem.tbl_deploy (end_dt);
+
+CREATE INDEX IF NOT EXISTS idx_tbl_tag_history_id
+ON telem.tbl_tag_history (id);
+CREATE INDEX IF NOT EXISTS idx_tbl_tag_history_tag_inventory_id
+ON telem.tbl_tag_history (tag_inventory_id);
+CREATE INDEX IF NOT EXISTS idx_tbl_tag_history_action_date
+ON telem.tbl_tag_history (action_date);
+CREATE INDEX IF NOT EXISTS idx_tbl_tag_history_action_lku
+ON telem.tbl_tag_history (action_lku);
+CREATE INDEX IF NOT EXISTS idx_tbl_tag_history_reason_lku
+ON telem.tbl_tag_history (reason_lku);
+
+CREATE INDEX IF NOT EXISTS idx_tbl_tag_inventory_serial_num
+ON telem.tbl_tag_inventory (serial_num);
+CREATE INDEX IF NOT EXISTS idx_tbl_tag_inventory_ptt
+ON telem.tbl_tag_inventory (ptt);
+CREATE INDEX IF NOT EXISTS idx_tbl_tag_inventory_tag_family_lku
+ON telem.tbl_tag_inventory (tag_family_lku);
+
+CREATE INDEX IF NOT EXISTS idx_tbl_tag_verification_deploy_id
+ON telem.tbl_verification (deploy_id);
+CREATE INDEX IF NOT EXISTS idx_tbl_tag_verification_data_type_lku
+ON telem.tbl_verification (data_type_lku);
+CREATE INDEX IF NOT EXISTS idx_tbl_tag_verification_data_problem_lku
+ON telem.tbl_verification (data_problem_lku);
+CREATE INDEX IF NOT EXISTS idx_tbl_tag_verification_exclusion_start_dt
+ON telem.tbl_verification (exclusion_start_dt);
+CREATE INDEX IF NOT EXISTS idx_tbl_tag_verification_exclusion_end_dt
+ON telem.tbl_verification (exclusion_end_dt);
+
