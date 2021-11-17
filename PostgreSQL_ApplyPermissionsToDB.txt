@@ -1,0 +1,338 @@
+REASSIGN OWNED BY pep_admins, londonj, hardys, richmonde TO sa;
+
+GRANT CONNECT ON DATABASE pep to pep_admins;
+
+
+GRANT CONNECT ON DATABASE pep to pep_user;
+
+
+
+--ADMINISTRATIVE:
+----Remove all existing permissions
+REVOKE ALL ON SCHEMA administrative FROM pep_admins;
+REVOKE ALL ON SCHEMA administrative FROM pep_user;
+
+----Grant access to user groups
+GRANT USAGE ON SCHEMA administrative TO pep_admins; 
+GRANT CONNECT ON DATABASE pep to pep_entry_administrative;
+GRANT USAGE ON SCHEMA administrative TO pep_user; 
+
+----Grant table permissions to user groups
+GRANT ALL ON ALL TABLES IN SCHEMA administrative TO pep_admins;
+GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA administrative TO pep_admins;
+GRANT SELECT, UPDATE, INSERT, DELETE ON ALL TABLES IN SCHEMA administrative TO pep_entry_administrative;
+GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA administrative TO pep_entry_administrative;
+GRANT SELECT ON ALL TABLES IN SCHEMA administrative TO pep_user;
+
+----Set default table permissions to user groups
+ALTER DEFAULT PRIVILEGES IN SCHEMA administrative GRANT ALL ON TABLES TO pep_admins;
+ALTER DEFAULT PRIVILEGES IN SCHEMA administrative GRANT SELECT, UPDATE, INSERT, DELETE ON TABLES TO pep_entry_administrative;
+ALTER DEFAULT PRIVILEGES IN SCHEMA administrative GRANT USAGE, SELECT ON SEQUENCES TO pep_entry_administrative;
+ALTER DEFAULT PRIVILEGES IN SCHEMA administrative GRANT SELECT ON TABLES TO pep_user;
+
+
+
+--ANNOTATIONS:
+----Remove all existing permissions
+REVOKE ALL ON SCHEMA annotations FROM pep_admins;
+REVOKE ALL ON SCHEMA annotations FROM pep_user;
+
+----Grant access to user groups
+GRANT USAGE ON SCHEMA annotations TO pep_admins; 
+GRANT CONNECT ON DATABASE pep to pep_entry_annotations;
+GRANT USAGE ON SCHEMA annotations TO pep_user; 
+
+----Grant table permissions to user groups
+GRANT ALL ON ALL TABLES IN SCHEMA annotations TO pep_admins;
+GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA annotations TO pep_admins;
+GRANT SELECT, UPDATE, INSERT, DELETE ON ALL TABLES IN SCHEMA annotations TO pep_entry_annotations;
+GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA annotations TO pep_entry_annotations;
+GRANT SELECT ON ALL TABLES IN SCHEMA annotations TO pep_user;
+
+----Set default table permissions to user groups
+ALTER DEFAULT PRIVILEGES IN SCHEMA annotations GRANT ALL ON TABLES TO pep_admins;
+ALTER DEFAULT PRIVILEGES IN SCHEMA annotations GRANT SELECT, UPDATE, INSERT, DELETE ON TABLES TO pep_entry_annotations;
+ALTER DEFAULT PRIVILEGES IN SCHEMA annotations GRANT USAGE, SELECT ON SEQUENCES TO pep_entry_annotations;
+ALTER DEFAULT PRIVILEGES IN SCHEMA annotations GRANT SELECT ON TABLES TO pep_user;
+
+
+
+--BASE
+----Remove all existing permissions
+REVOKE ALL ON SCHEMA base FROM pep_admins;
+REVOKE ALL ON SCHEMA base FROM pep_user;
+
+----Grant access to user groups
+GRANT USAGE ON SCHEMA base TO pep_admins; 
+GRANT USAGE ON SCHEMA base TO pep_user; 
+
+----Grant table permissions to user groups
+GRANT ALL ON ALL TABLES IN SCHEMA base TO pep_admins;
+GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA base TO pep_admins;
+GRANT SELECT ON ALL TABLES IN SCHEMA base TO pep_user;
+
+----Set default table permissions to user groups
+ALTER DEFAULT PRIVILEGES IN SCHEMA base GRANT ALL ON TABLES TO pep_admins;
+ALTER DEFAULT PRIVILEGES IN SCHEMA base GRANT SELECT ON TABLES TO pep_user;
+
+
+
+--CAPTURE:
+----Remove all existing permissions
+REVOKE ALL ON SCHEMA capture FROM pep_admins;
+REVOKE ALL ON SCHEMA capture FROM pep_user;
+
+----Grant access to user groups
+GRANT USAGE ON SCHEMA capture TO pep_admins; 
+GRANT CONNECT ON DATABASE pep to pep_entry_capture;
+GRANT USAGE ON SCHEMA capture TO pep_user; 
+
+----Grant table permissions to user groups
+GRANT ALL ON ALL TABLES IN SCHEMA capture TO pep_admins;
+GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA capture TO pep_admins;
+GRANT SELECT, UPDATE, INSERT, DELETE ON ALL TABLES IN SCHEMA capture TO pep_entry_capture;
+GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA capture TO pep_entry_capture;
+GRANT SELECT ON ALL TABLES IN SCHEMA capture TO pep_user;
+
+----Set default table permissions to user groups
+ALTER DEFAULT PRIVILEGES IN SCHEMA capture GRANT ALL ON TABLES TO pep_admins;
+ALTER DEFAULT PRIVILEGES IN SCHEMA capture GRANT SELECT, UPDATE, INSERT, DELETE ON TABLES TO pep_entry_capture;
+ALTER DEFAULT PRIVILEGES IN SCHEMA capture GRANT USAGE, SELECT ON SEQUENCES TO pep_entry_capture;
+ALTER DEFAULT PRIVILEGES IN SCHEMA capture GRANT SELECT ON TABLES TO pep_user;
+
+
+
+--ENVIRON:
+----Remove all existing permissions
+REVOKE ALL ON SCHEMA environ FROM pep_admins;
+REVOKE ALL ON SCHEMA environ FROM pep_user;
+
+----Grant access to user groups
+GRANT USAGE ON SCHEMA environ TO pep_admins; 
+GRANT USAGE ON SCHEMA environ TO pep_user; 
+
+----Grant table permissions to user groups
+GRANT ALL ON ALL TABLES IN SCHEMA environ TO pep_admins;
+GRANT SELECT ON ALL TABLES IN SCHEMA environ TO pep_user;
+
+----Set default table permissions to user groups
+ALTER DEFAULT PRIVILEGES IN SCHEMA environ GRANT ALL ON TABLES TO pep_admins;
+ALTER DEFAULT PRIVILEGES IN SCHEMA environ GRANT SELECT ON TABLES TO pep_user;
+
+
+
+--PUBLIC:
+----Remove all existing permissions
+REVOKE ALL ON SCHEMA public FROM pep_admins;
+REVOKE ALL ON SCHEMA public FROM pep_user;
+
+----Grant access to user groups
+GRANT USAGE, CREATE ON SCHEMA public TO pep_admins; 
+GRANT USAGE ON SCHEMA public TO pep_user;
+
+----Grant table permissions to user groups
+GRANT SELECT ON ALL TABLES IN SCHEMA public TO pep_admins;
+GRANT SELECT ON ALL TABLES IN SCHEMA public TO pep_user;
+
+----Set default table permissions to user groups
+ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL ON TABLES TO pep_admins;
+ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT ON TABLES TO pep_user;
+
+
+
+--STOCK:
+----Remove all existing permissions
+REVOKE ALL ON SCHEMA stock FROM pep_admins;
+REVOKE ALL ON SCHEMA stock FROM pep_user;
+
+----Grant access to user groups
+GRANT USAGE ON SCHEMA stock TO pep_admins; 
+GRANT USAGE ON SCHEMA stock TO pep_user; 
+
+----Grant table permissions to user groups
+GRANT ALL ON ALL TABLES IN SCHEMA stock TO pep_admins;
+GRANT SELECT ON ALL TABLES IN SCHEMA stock TO pep_user;
+
+----Set default table permissions to user groups
+ALTER DEFAULT PRIVILEGES IN SCHEMA stock GRANT ALL ON TABLES TO pep_admins;
+ALTER DEFAULT PRIVILEGES IN SCHEMA stock GRANT SELECT ON TABLES TO pep_user;
+
+
+
+--SURV_BOSS:
+----Remove all existing permissions
+REVOKE ALL ON SCHEMA surv_boss FROM pep_admins;
+REVOKE ALL ON SCHEMA surv_boss FROM pep_user;
+
+----Grant access to user groups
+GRANT USAGE ON SCHEMA surv_boss TO pep_admins; 
+GRANT USAGE ON SCHEMA surv_boss TO pep_user; 
+
+----Grant table permissions to user groups
+GRANT ALL ON ALL TABLES IN SCHEMA surv_boss TO pep_admins;
+GRANT SELECT ON ALL TABLES IN SCHEMA surv_boss TO pep_user;
+
+----Set default table permissions to user groups
+ALTER DEFAULT PRIVILEGES IN SCHEMA surv_boss GRANT ALL ON TABLES TO pep_admins;
+ALTER DEFAULT PRIVILEGES IN SCHEMA surv_boss GRANT SELECT ON TABLES TO pep_user;
+
+
+
+--SURV_CHESS:
+----Remove all existing permissions
+REVOKE ALL ON SCHEMA surv_chess FROM pep_admins;
+REVOKE ALL ON SCHEMA surv_chess FROM pep_user;
+
+----Grant access to user groups
+GRANT USAGE ON SCHEMA surv_chess TO pep_admins; 
+GRANT USAGE ON SCHEMA surv_chess TO pep_user; 
+
+----Grant table permissions to user groups
+GRANT ALL ON ALL TABLES IN SCHEMA surv_chess TO pep_admins;
+GRANT SELECT ON ALL TABLES IN SCHEMA surv_chess TO pep_user;
+
+----Set default table permissions to user groups
+ALTER DEFAULT PRIVILEGES IN SCHEMA surv_chess GRANT ALL ON TABLES TO pep_admins;
+ALTER DEFAULT PRIVILEGES IN SCHEMA surv_chess GRANT SELECT ON TABLES TO pep_user;
+
+
+
+--SURV_POLAR_BEAR:
+----Remove all existing permissions
+REVOKE ALL ON SCHEMA surv_polar_bear FROM pep_admins;
+REVOKE ALL ON SCHEMA surv_polar_bear FROM pep_user;
+
+----Grant access to user groups
+GRANT USAGE ON SCHEMA surv_polar_bear TO pep_admins; 
+GRANT USAGE ON SCHEMA surv_polar_bear TO pep_user; 
+
+----Grant table permissions to user groups
+GRANT ALL ON ALL TABLES IN SCHEMA surv_polar_bear TO pep_admins;
+GRANT SELECT ON ALL TABLES IN SCHEMA surv_polar_bear TO pep_user;
+
+----Set default table permissions to user groups
+ALTER DEFAULT PRIVILEGES IN SCHEMA surv_polar_bear GRANT ALL ON TABLES TO pep_admins;
+ALTER DEFAULT PRIVILEGES IN SCHEMA surv_polar_bear GRANT SELECT ON TABLES TO pep_user;
+
+
+
+--SURV_JOBSS:
+----Remove all existing permissions
+REVOKE ALL ON SCHEMA surv_jobss FROM pep_admins;
+REVOKE ALL ON SCHEMA surv_jobss FROM pep_entry_surv_jobss;
+REVOKE ALL ON SCHEMA surv_jobss FROM pep_user;
+
+----Grant access to user groups
+GRANT USAGE ON SCHEMA surv_jobss TO pep_admins; 
+GRANT CONNECT ON DATABASE pep to pep_entry_surv_jobss;
+GRANT USAGE ON SCHEMA surv_jobss TO pep_entry_surv_jobss;
+GRANT USAGE ON SCHEMA surv_jobss TO pep_user; 
+
+----Grant table permissions to user groups
+GRANT ALL ON ALL TABLES IN SCHEMA surv_jobss TO pep_admins;
+GRANT SELECT, UPDATE, INSERT, DELETE ON ALL TABLES IN SCHEMA surv_jobss TO pep_entry_surv_jobss;
+GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA surv_jobss TO pep_entry_surv_jobss;
+GRANT SELECT ON ALL TABLES IN SCHEMA surv_jobss TO pep_user;
+
+----Set default table permissions to user groups
+ALTER DEFAULT PRIVILEGES IN SCHEMA surv_jobss GRANT ALL ON TABLES TO pep_admins;
+ALTER DEFAULT PRIVILEGES IN SCHEMA surv_jobss GRANT SELECT, UPDATE, INSERT, DELETE ON TABLES TO pep_entry_surv_jobss;
+ALTER DEFAULT PRIVILEGES IN SCHEMA surv_jobss GRANT USAGE, SELECT ON SEQUENCES TO pep_entry_surv_jobss;
+ALTER DEFAULT PRIVILEGES IN SCHEMA surv_jobss GRANT SELECT ON TABLES TO pep_user;
+
+
+
+--SURV_PV_CST:
+----Remove all existing permissions
+REVOKE ALL ON SCHEMA surv_pv_cst FROM pep_admins;
+REVOKE ALL ON SCHEMA surv_pv_cst FROM pep_entry_surv_pv_cst;
+REVOKE ALL ON SCHEMA surv_pv_cst FROM pep_user;
+
+----Grant access to user groups
+GRANT USAGE ON SCHEMA surv_pv_cst TO pep_admins; 
+GRANT CONNECT ON DATABASE pep to pep_entry_surv_pv_cst;
+GRANT USAGE ON SCHEMA surv_pv_cst TO pep_entry_surv_pv_cst;
+GRANT USAGE ON SCHEMA surv_pv_cst TO pep_user; 
+
+----Grant table permissions to user groups
+GRANT ALL ON ALL TABLES IN SCHEMA surv_pv_cst TO pep_admins;
+GRANT SELECT, UPDATE, INSERT, DELETE ON ALL TABLES IN SCHEMA surv_pv_cst TO pep_entry_surv_pv_cst;
+GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA surv_pv_cst TO pep_entry_surv_pv_cst;
+GRANT SELECT ON ALL TABLES IN SCHEMA surv_pv_cst TO pep_user;
+
+----Set default table permissions to user groups
+ALTER DEFAULT PRIVILEGES IN SCHEMA surv_pv_cst GRANT ALL ON TABLES TO pep_admins;
+ALTER DEFAULT PRIVILEGES IN SCHEMA surv_pv_cst GRANT SELECT, UPDATE, INSERT, DELETE ON TABLES TO pep_entry_surv_pv_cst;
+ALTER DEFAULT PRIVILEGES IN SCHEMA surv_pv_cst GRANT USAGE, SELECT ON SEQUENCES TO pep_entry_surv_pv_cst;
+ALTER DEFAULT PRIVILEGES IN SCHEMA surv_pv_cst GRANT SELECT ON TABLES TO pep_user;
+
+
+
+--SURV_PV_GLA:
+----Remove all existing permissions
+REVOKE ALL ON SCHEMA surv_pv_gla FROM pep_admins;
+REVOKE ALL ON SCHEMA surv_pv_gla FROM pep_entry_surv_pv_gla;
+REVOKE ALL ON SCHEMA surv_pv_gla FROM pep_user;
+
+----Grant access to user groups
+GRANT USAGE ON SCHEMA surv_pv_gla TO pep_admins; 
+GRANT CONNECT ON DATABASE pep to pep_entry_surv_pv_gla;
+GRANT USAGE ON SCHEMA surv_pv_gla TO pep_entry_surv_pv_gla;
+GRANT USAGE ON SCHEMA surv_pv_gla TO pep_user; 
+
+----Grant table permissions to user groups
+GRANT ALL ON ALL TABLES IN SCHEMA surv_pv_gla TO pep_admins;
+GRANT SELECT, UPDATE, INSERT, DELETE ON ALL TABLES IN SCHEMA surv_pv_gla TO pep_entry_surv_pv_gla;
+GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA surv_pv_gla TO pep_entry_surv_pv_gla;
+GRANT SELECT ON ALL TABLES IN SCHEMA surv_pv_gla TO pep_user;
+
+----Set default table permissions to user groups
+ALTER DEFAULT PRIVILEGES IN SCHEMA surv_pv_gla GRANT ALL ON TABLES TO pep_admins;
+ALTER DEFAULT PRIVILEGES IN SCHEMA surv_pv_gla GRANT SELECT, UPDATE, INSERT, DELETE ON TABLES TO pep_entry_surv_pv_gla;
+ALTER DEFAULT PRIVILEGES IN SCHEMA surv_pv_gla GRANT USAGE, SELECT ON SEQUENCES TO pep_entry_surv_pv_gla;
+ALTER DEFAULT PRIVILEGES IN SCHEMA surv_pv_gla GRANT SELECT ON TABLES TO pep_user;
+
+
+
+--SURV_TEST_KOTZ:
+----Remove all existing permissions
+REVOKE ALL ON SCHEMA surv_test_kotz FROM pep_admins;
+REVOKE ALL ON SCHEMA surv_test_kotz FROM pep_user;
+
+----Grant access to user groups
+GRANT USAGE ON SCHEMA surv_test_kotz TO pep_admins; 
+GRANT USAGE ON SCHEMA surv_test_kotz TO pep_user; 
+
+----Grant table permissions to user groups
+GRANT ALL ON ALL TABLES IN SCHEMA surv_test_kotz TO pep_admins;
+GRANT SELECT ON ALL TABLES IN SCHEMA surv_test_kotz TO pep_user;
+
+----Set default table permissions to user groups
+ALTER DEFAULT PRIVILEGES IN SCHEMA surv_test_kotz GRANT ALL ON TABLES TO pep_admins;
+ALTER DEFAULT PRIVILEGES IN SCHEMA surv_test_kotz GRANT SELECT ON TABLES TO pep_user;
+
+
+
+--TELEM:
+----Remove all existing permissions
+REVOKE ALL ON SCHEMA telem FROM pep_admins;
+REVOKE ALL ON SCHEMA telem FROM pep_entry_capture;
+REVOKE ALL ON SCHEMA telem FROM pep_user;
+
+----Grant access to user groups
+GRANT USAGE ON SCHEMA telem TO pep_admins; 
+GRANT USAGE ON SCHEMA telem TO pep_entry_capture;
+GRANT USAGE ON SCHEMA telem TO pep_user; 
+
+----Grant table permissions to user groups
+GRANT ALL ON ALL TABLES IN SCHEMA telem TO pep_admins;
+GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA telem TO pep_admins;
+GRANT SELECT, UPDATE, INSERT, DELETE ON ALL TABLES IN SCHEMA telem TO pep_entry_capture;
+GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA telem TO pep_entry_capture;
+GRANT SELECT ON ALL TABLES IN SCHEMA telem TO pep_user;
+
+----Set default table permissions to user groups
+ALTER DEFAULT PRIVILEGES IN SCHEMA telem GRANT ALL ON TABLES TO pep_admins;
+ALTER DEFAULT PRIVILEGES IN SCHEMA telem GRANT SELECT, UPDATE, INSERT, DELETE ON TABLES TO pep_entry_capture;
+ALTER DEFAULT PRIVILEGES IN SCHEMA telem GRANT USAGE, SELECT ON SEQUENCES TO pep_entry_capture;
+ALTER DEFAULT PRIVILEGES IN SCHEMA telem GRANT SELECT ON TABLES TO pep_user;
