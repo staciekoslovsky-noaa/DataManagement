@@ -121,6 +121,31 @@ ALTER DEFAULT PRIVILEGES IN SCHEMA environ GRANT SELECT ON TABLES TO pep_user;
 
 
 
+--INVENTORY:
+----Remove all existing permissions
+REVOKE ALL ON SCHEMA inventory FROM pep_admins;
+REVOKE ALL ON SCHEMA inventory FROM pep_user;
+
+----Grant access to user groups
+GRANT USAGE ON SCHEMA inventory TO pep_admins; 
+GRANT CONNECT ON DATABASE pep to pep_entry_inventory;
+GRANT USAGE ON SCHEMA inventory TO pep_user; 
+
+----Grant table permissions to user groups
+GRANT ALL ON ALL TABLES IN SCHEMA inventory TO pep_admins;
+GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA inventory TO pep_admins;
+GRANT SELECT, UPDATE, INSERT, DELETE ON ALL TABLES IN SCHEMA inventory TO pep_entry_inventory;
+GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA inventory TO pep_entry_inventory;
+GRANT SELECT ON ALL TABLES IN SCHEMA inventory TO pep_user;
+
+----Set default table permissions to user groups
+ALTER DEFAULT PRIVILEGES IN SCHEMA inventory GRANT ALL ON TABLES TO pep_admins;
+ALTER DEFAULT PRIVILEGES IN SCHEMA inventory GRANT SELECT, UPDATE, INSERT, DELETE ON TABLES TO pep_entry_inventory;
+ALTER DEFAULT PRIVILEGES IN SCHEMA inventory GRANT USAGE, SELECT ON SEQUENCES TO pep_entry_inventory;
+ALTER DEFAULT PRIVILEGES IN SCHEMA inventory GRANT SELECT ON TABLES TO pep_user;
+
+
+
 --PUBLIC:
 ----Remove all existing permissions
 REVOKE ALL ON SCHEMA public FROM pep_admins;
