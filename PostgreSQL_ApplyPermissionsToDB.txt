@@ -9,6 +9,7 @@ GRANT CONNECT ON DATABASE pep to pep_user;
 ----Remove all existing permissions
 REVOKE ALL ON SCHEMA administrative FROM pep_admin;
 REVOKE ALL ON SCHEMA administrative FROM pep_user;
+REVOKE ALL ON SCHEMA administrative FROM pep_entry_administrative;
 
 ----Grant access to user groups
 GRANT USAGE ON SCHEMA administrative TO pep_admin; 
@@ -34,6 +35,7 @@ ALTER DEFAULT PRIVILEGES IN SCHEMA administrative GRANT SELECT ON TABLES TO pep_
 ----Remove all existing permissions
 REVOKE ALL ON SCHEMA annotations FROM pep_admin;
 REVOKE ALL ON SCHEMA annotations FROM pep_user;
+REVOKE ALL ON SCHEMA annotations FROM pep_entry_annotations;
 
 ----Grant access to user groups
 GRANT USAGE ON SCHEMA annotations TO pep_admin; 
@@ -79,6 +81,7 @@ ALTER DEFAULT PRIVILEGES IN SCHEMA base GRANT SELECT ON TABLES TO pep_user;
 ----Remove all existing permissions
 REVOKE ALL ON SCHEMA body_condition FROM pep_admin;
 REVOKE ALL ON SCHEMA body_condition FROM pep_user;
+REVOKE ALL ON SCHEMA body_condition FROM pep_entry_body_condition;
 
 ----Grant access to user groups
 GRANT USAGE ON SCHEMA body_condition TO pep_admin; 
@@ -105,6 +108,7 @@ ALTER DEFAULT PRIVILEGES IN SCHEMA body_condition GRANT SELECT ON TABLES TO pep_
 ----Remove all existing permissions
 REVOKE ALL ON SCHEMA capture FROM pep_admin;
 REVOKE ALL ON SCHEMA capture FROM pep_user;
+REVOKE ALL ON SCHEMA capture FROM pep_entry_capture;
 
 ----Grant access to user groups
 GRANT USAGE ON SCHEMA capture TO pep_admin; 
@@ -149,6 +153,7 @@ ALTER DEFAULT PRIVILEGES IN SCHEMA environ GRANT SELECT ON TABLES TO pep_user;
 ----Remove all existing permissions
 REVOKE ALL ON SCHEMA inventory FROM pep_admin;
 REVOKE ALL ON SCHEMA inventory FROM pep_user;
+REVOKE ALL ON SCHEMA inventory FROM pep_entry_inventory;
 
 ----Grant access to user groups
 GRANT USAGE ON SCHEMA inventory TO pep_admin; 
