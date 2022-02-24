@@ -190,6 +190,25 @@ ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT ON TABLES TO pep_user;
 
 
 
+--SPECIES_MISCLASS:
+----Remove all existing permissions
+REVOKE ALL ON SCHEMA species_misclass FROM pep_admin;
+REVOKE ALL ON SCHEMA species_misclass FROM pep_user;
+
+----Grant access to user groups
+GRANT USAGE ON SCHEMA species_misclass TO pep_admin; 
+GRANT USAGE ON SCHEMA species_misclass TO pep_user; 
+
+----Grant table permissions to user groups
+GRANT ALL ON ALL TABLES IN SCHEMA species_misclass TO pep_admin;
+GRANT SELECT ON ALL TABLES IN SCHEMA species_misclass TO pep_user;
+
+----Set default table permissions to user groups
+ALTER DEFAULT PRIVILEGES IN SCHEMA species_misclass GRANT ALL ON TABLES TO pep_admin;
+ALTER DEFAULT PRIVILEGES IN SCHEMA species_misclass GRANT SELECT ON TABLES TO pep_user;
+
+
+
 --STOCK:
 ----Remove all existing permissions
 REVOKE ALL ON SCHEMA stock FROM pep_admin;
