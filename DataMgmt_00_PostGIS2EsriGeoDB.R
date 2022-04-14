@@ -350,6 +350,36 @@ geo_haulout <- sf::st_read(con, query = "SELECT * FROM surv_pv_cst.geo_haulout",
 arc.write(file.path(fgdb_path, "surv_pv_cst\\geo_haulout"), data = geo_haulout, overwrite = TRUE)
 rm(geo_haulout)
 
+# geo_haulout_20171215
+geo_haulout_20171215 <- sf::st_read(con, query = "SELECT * FROM surv_pv_cst.geo_haulout_20171215", geometry = "geom") %>%
+  sf::as_Spatial()
+arc.write(file.path(fgdb_path, "surv_pv_cst\\geo_haulout_20171215"), data = geo_haulout_20171215, overwrite = TRUE)
+rm(geo_haulout_20171215)
+
+# geo_haulout_20180105
+geo_haulout_20180105 <- sf::st_read(con, query = "SELECT * FROM surv_pv_cst.geo_haulout_20180105", geometry = "geom") %>%
+  sf::as_Spatial()
+arc.write(file.path(fgdb_path, "surv_pv_cst\\geo_haulout_20180105"), data = geo_haulout_20180105, overwrite = TRUE)
+rm(geo_haulout_20180105)
+
+# geo_haulout_20190227
+geo_haulout_20190227 <- sf::st_read(con, query = "SELECT * FROM surv_pv_cst.geo_haulout_20190227", geometry = "geom") %>%
+  sf::as_Spatial()
+arc.write(file.path(fgdb_path, "surv_pv_cst\\geo_haulout_20190227"), data = geo_haulout_20190227, overwrite = TRUE)
+rm(geo_haulout_20190227)
+
+# geo_haulout_20210105
+geo_haulout_20210105 <- sf::st_read(con, query = "SELECT * FROM surv_pv_cst.geo_haulout_20210105", geometry = "geom") %>%
+  sf::as_Spatial()
+arc.write(file.path(fgdb_path, "surv_pv_cst\\geo_haulout_20210105"), data = geo_haulout_20210105, overwrite = TRUE)
+rm(geo_haulout_20210105)
+
+# geo_haulout_20220414
+geo_haulout_20220414 <- sf::st_read(con, query = "SELECT * FROM surv_pv_cst.geo_haulout_20220414", geometry = "geom") %>%
+  sf::as_Spatial()
+arc.write(file.path(fgdb_path, "surv_pv_cst\\geo_haulout_20220414"), data = geo_haulout_20220414, overwrite = TRUE)
+rm(geo_haulout_20220414)
+
 # geo_polys
 geo_polys <- sf::st_read(con, query = "SELECT * FROM surv_pv_cst.geo_polys") %>%
   sf::as_Spatial()
