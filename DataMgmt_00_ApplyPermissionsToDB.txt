@@ -4,6 +4,25 @@ GRANT CONNECT ON DATABASE pep to pep_admin;
 GRANT CONNECT ON DATABASE pep to pep_user;
 
 
+--ACOUSTICS
+----Remove all existing permissions
+REVOKE ALL ON SCHEMA acoustics FROM pep_admin;
+REVOKE ALL ON SCHEMA acoustics FROM pep_user;
+
+----Grant access to user groups
+GRANT USAGE ON SCHEMA acoustics TO pep_admin; 
+GRANT USAGE ON SCHEMA acoustics TO pep_user; 
+
+----Grant table permissions to user groups
+GRANT ALL ON ALL TABLES IN SCHEMA acoustics TO pep_admin;
+GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA acoustics TO pep_admin;
+GRANT SELECT ON ALL TABLES IN SCHEMA acoustics TO pep_user;
+
+----Set default table permissions to user groups
+ALTER DEFAULT PRIVILEGES IN SCHEMA acoustics GRANT ALL ON TABLES TO pep_admin;
+ALTER DEFAULT PRIVILEGES IN SCHEMA acoustics GRANT SELECT ON TABLES TO pep_user;
+
+
 
 --ADMINISTRATIVE:
 ----Remove all existing permissions
