@@ -424,3 +424,26 @@ ALTER DEFAULT PRIVILEGES IN SCHEMA telem GRANT ALL ON TABLES TO pep_admin;
 ALTER DEFAULT PRIVILEGES IN SCHEMA telem GRANT SELECT, UPDATE, INSERT, DELETE ON TABLES TO pep_entry_capture;
 ALTER DEFAULT PRIVILEGES IN SCHEMA telem GRANT USAGE, SELECT ON SEQUENCES TO pep_entry_capture;
 ALTER DEFAULT PRIVILEGES IN SCHEMA telem GRANT SELECT ON TABLES TO pep_user;
+
+
+
+--USPAI:
+----Remove all existing permissions
+REVOKE ALL ON SCHEMA uspai FROM pep_admin;
+REVOKE ALL ON SCHEMA uspai FROM pep_user;
+REVOKE ALL ON SCHEMA uspai FROM aep_user;
+
+----Grant access to user groups
+GRANT USAGE ON SCHEMA uspai TO pep_admin; 
+GRANT USAGE ON SCHEMA uspai TO pep_user; 
+GRANT USAGE ON SCHEMA uspai TO aep_user; 
+
+----Grant table permissions to user groups
+GRANT ALL ON ALL TABLES IN SCHEMA uspai TO pep_admin;
+GRANT SELECT ON ALL TABLES IN SCHEMA uspai TO pep_user;
+GRANT SELECT ON ALL TABLES IN SCHEMA uspai TO aep_user;
+
+----Set default table permissions to user groups
+ALTER DEFAULT PRIVILEGES IN SCHEMA uspai GRANT ALL ON TABLES TO pep_admin;
+ALTER DEFAULT PRIVILEGES IN SCHEMA uspai GRANT SELECT ON TABLES TO pep_user;
+ALTER DEFAULT PRIVILEGES IN SCHEMA uspai GRANT SELECT ON TABLES TO aep_user;
