@@ -2,6 +2,7 @@ REASSIGN OWNED BY pep_admin, londonj, hardys, richmonde TO sa;
 
 GRANT CONNECT ON DATABASE pep to pep_admin;
 GRANT CONNECT ON DATABASE pep to pep_user;
+GRANT CONNECT ON DATABASE pep to aep_user;
 
 
 --ACOUSTICS
