@@ -34,8 +34,6 @@ con <- RPostgreSQL::dbConnect(PostgreSQL(),
                               host = Sys.getenv("pep_ip"), 
                               user = Sys.getenv("pep_admin"), 
                               password = Sys.getenv("admin_pw"))
-                              #rstudioapi::askForPassword(paste("Enter your DB password for user account: ", Sys.getenv("pep_admin"), sep = "")))
-
 
 # Get data from DB ---------------------------------------------
 
@@ -116,11 +114,12 @@ rm(geo_captures)
 
 
 ### stock --------------------
-# geo_dist_pv -- THROWING ERROR WHEN IMPORTING>>>>>>NEED TO REVISIT THIS ONE!!!!!!!!!!!
-# geo_dist_pv <- sf::st_read(con, query = "SELECT * FROM stock.geo_dist_pv") %>%
-#   sf::as_Spatial()
-# arc.write(file.path(fgdb_path, "stock\\geo_dist_pv"), data = geo_dist_pv, overwrite = TRUE, validate = TRUE)
-# rm(geo_dist_pv)
+# geo_dist_pv
+geo_dist_pv <- sf::st_read(con, query = "SELECT * FROM stock.geo_dist_pv") %>%
+  select(id, geom, stockname, stock_num) %>%
+  sf::as_Spatial()
+arc.write(file.path(fgdb_path, "stock\\geo_dist_pv"), data = geo_dist_pv, overwrite = TRUE, validate = TRUE)
+rm(geo_dist_pv)
 
 # geo_dist_bd
 geo_dist_bd <- sf::st_read(con, query = "SELECT * FROM stock.geo_dist_bd") %>%
@@ -187,9 +186,11 @@ rm(geo_fmc_log)
 
 # geo_hotspots -- THROWING ERROR WHEN IMPORTING>>>>>>NEED TO REVISIT THIS ONE!!!!!!!!!!!
 # geo_hotspots <- sf::st_read(con, query = "SELECT * FROM surv_boss.geo_hotspots WHERE geom IS NOT NULL") %>%
+#   #mutate(hotspot_dt = as.POSIXct(hotspot_dt, format = "%F")) %>%
+#   #mutate(gps_dt = as.POSIXct(gps_dt, format = "%F")) %>%
 #   sf::as_Spatial()
-# arc.write(file.path(fgdb_path, "surv_boss\\geo_hotspots"), data = geo_hotspots, overwrite = TRUE, validate = TRUE)
-# rm(geo_hotspots)
+# arc.write(file.path(fgdb_path, "surv_boss\\geo_hotspots"), data = geo_hotspots[1:1,], overwrite = TRUE, validate = TRUE)
+# # rm(geo_hotspots)
 
 # geo_images
 geo_images <- sf::st_read(con, query = "SELECT * FROM surv_boss.geo_images") %>%
@@ -198,17 +199,23 @@ geo_images <- sf::st_read(con, query = "SELECT * FROM surv_boss.geo_images") %>%
 arc.write(file.path(fgdb_path, "surv_boss\\geo_images"), data = geo_images, overwrite = TRUE, validate = TRUE)
 rm(geo_images)
 
-# geo_tracks_by_effort -- THROWING ERROR WHEN IMPORTING>>>>>>NEED TO REVISIT THIS ONE!!!!!!!!!!!
-# geo_tracks_by_effort <- sf::st_read(con, query = "SELECT * FROM surv_boss.geo_tracks_by_effort") %>%
-#   sf::as_Spatial()
-# arc.write(file.path(fgdb_path, "surv_boss\\geo_tracks_by_effort"), data = geo_tracks_by_effort, overwrite = TRUE, validate = TRUE)
-# rm(geo_tracks_by_effort)
+# geo_tracks_by_effort
+geo_tracks_by_effort <- sf::st_read(con, query = "SELECT * FROM surv_boss.geo_tracks_by_effort") %>%
+  mutate(num_pts = mapview::npts(., by_feature = TRUE)) %>%
+  filter(num_pts > 1) %>%
+  select(-num_pts) %>%
+  sf::as_Spatial()
+arc.write(file.path(fgdb_path, "surv_boss\\geo_tracks_by_effort"), data = geo_tracks_by_effort, overwrite = TRUE, validate = TRUE)
+rm(geo_tracks_by_effort)
 
-# geo_tracks_on_effort -- THROWING ERROR WHEN IMPORTING>>>>>>NEED TO REVISIT THIS ONE!!!!!!!!!!!
-# geo_tracks_on_effort <- sf::st_read(con, query = "SELECT * FROM surv_boss.geo_tracks_on_effort") %>%
-#   sf::as_Spatial()
-# arc.write(file.path(fgdb_path, "surv_boss\\geo_tracks_on_effort"), data = geo_tracks_on_effort, overwrite = TRUE, validate = TRUE)
-# rm(geo_tracks_on_effort)
+# geo_tracks_on_effort
+geo_tracks_on_effort <- sf::st_read(con, query = "SELECT * FROM surv_boss.geo_tracks_on_effort") %>%
+  mutate(num_pts = mapview::npts(., by_feature = TRUE)) %>%
+  filter(num_pts > 1) %>%
+  select(-num_pts) %>%
+  sf::as_Spatial()
+arc.write(file.path(fgdb_path, "surv_boss\\geo_tracks_on_effort"), data = geo_tracks_on_effort, overwrite = TRUE, validate = TRUE)
+rm(geo_tracks_on_effort)
 
 # geo_tracks_on_effort_2012
 geo_tracks_on_effort_2012 <- sf::st_read(con, query = "SELECT * FROM surv_boss.geo_tracks_on_effort_2012") %>%
@@ -216,11 +223,14 @@ geo_tracks_on_effort_2012 <- sf::st_read(con, query = "SELECT * FROM surv_boss.g
 arc.write(file.path(fgdb_path, "surv_boss\\geo_tracks_on_effort_2012"), data = geo_tracks_on_effort_2012, overwrite = TRUE, validate = TRUE)
 rm(geo_tracks_on_effort_2012)
 
-# geo_tracks_on_effort_2013 -- THROWING ERROR WHEN IMPORTING>>>>>>NEED TO REVISIT THIS ONE!!!!!!!!!!!
-# geo_tracks_on_effort_2013 <- sf::st_read(con, query = "SELECT * FROM surv_boss.geo_tracks_on_effort_2013") %>%
-#   sf::as_Spatial()
-# arc.write(file.path(fgdb_path, "surv_boss\\geo_tracks_on_effort_2013"), data = geo_tracks_on_effort_2013, overwrite = TRUE, validate = TRUE)
-# rm(geo_tracks_on_effort_2013)
+# geo_tracks_on_effort_2013
+geo_tracks_on_effort_2013 <- sf::st_read(con, query = "SELECT * FROM surv_boss.geo_tracks_on_effort_2013") %>%
+  mutate(num_pts = mapview::npts(., by_feature = TRUE)) %>%
+  filter(num_pts > 1) %>%
+  select(-num_pts) %>%
+  sf::as_Spatial()
+arc.write(file.path(fgdb_path, "surv_boss\\geo_tracks_on_effort_2013"), data = geo_tracks_on_effort_2013, overwrite = TRUE, validate = TRUE)
+rm(geo_tracks_on_effort_2013)
 
 
 
@@ -245,17 +255,23 @@ geo_process_with_effort <- sf::st_read(con, query = "SELECT * FROM surv_chess.ge
 arc.write(file.path(fgdb_path, "surv_chess\\geo_process_with_effort"), data = geo_process_with_effort, overwrite = TRUE, validate = TRUE)
 rm(geo_process_with_effort)
 
-# geo_track_by_effort -- THROWING ERROR WHEN IMPORTING>>>>>>NEED TO REVISIT THIS ONE!!!!!!!!!!!
-# geo_track_by_effort <- sf::st_read(con, query = "SELECT * FROM surv_chess.geo_track_by_effort") %>%
-#   sf::as_Spatial()
-# arc.write(file.path(fgdb_path, "surv_chess\\geo_track_by_effort"), data = geo_track_by_effort, overwrite = TRUE, validate = TRUE)
-# rm(geo_track_by_effort)
+# geo_track_by_effort
+geo_track_by_effort <- sf::st_read(con, query = "SELECT * FROM surv_chess.geo_track_by_effort") %>%
+  mutate(num_pts = mapview::npts(., by_feature = TRUE)) %>%
+  filter(num_pts > 1) %>%
+  select(-num_pts) %>%
+  sf::as_Spatial()
+arc.write(file.path(fgdb_path, "surv_chess\\geo_track_by_effort"), data = geo_track_by_effort, overwrite = TRUE, validate = TRUE)
+rm(geo_track_by_effort)
 
-# geo_track_by_flight -- THROWING ERROR WHEN IMPORTING>>>>>>NEED TO REVISIT THIS ONE!!!!!!!!!!!
-# geo_track_by_flight <- sf::st_read(con, query = "SELECT * FROM surv_chess.geo_track_by_flight") %>%
-#   sf::as_Spatial()
-# arc.write(file.path(fgdb_path, "surv_chess\\geo_track_by_flight"), data = geo_track_by_flight, overwrite = TRUE, validate = TRUE)
-# (geo_track_by_flight)
+# geo_track_by_flight
+geo_track_by_flight <- sf::st_read(con, query = "SELECT * FROM surv_chess.geo_track_by_flight") %>%
+  mutate(num_pts = mapview::npts(., by_feature = TRUE)) %>%
+  filter(num_pts > 1) %>%
+  select(-num_pts) %>%
+  sf::as_Spatial()
+arc.write(file.path(fgdb_path, "surv_chess\\geo_track_by_flight"), data = geo_track_by_flight, overwrite = TRUE, validate = TRUE)
+rm(geo_track_by_flight)
 
 # tbl_detect
 tbl_detect <- sf::st_read(con, query = "SELECT * FROM surv_chess.tbl_detect") %>%
@@ -291,7 +307,7 @@ rm(tbl_valid)
 
 
 ### surv_jobss --------------------
-# geo_detections_by_frame -- THROWING ERROR WHEN IMPORTING>>>>>>NEED TO REVISIT THIS ONE!!!!!!!!!!!
+# geo_detections_by_frame
 geo_detections_by_frame <- sf::st_read(con, query = "SELECT * FROM surv_jobss.geo_detections_by_frame") %>%
   sf::as_Spatial()
 arc.write(file.path(fgdb_path, "surv_jobss\\geo_detections_by_frame_j"), data = geo_detections_by_frame, overwrite = TRUE, validate = TRUE)
@@ -507,11 +523,13 @@ geo_images_meta <- sf::st_read(con, query = "SELECT * FROM surv_pv_gla.geo_image
 arc.write(file.path(fgdb_path, "surv_pv_gla\\geo_images_meta_g"), data = geo_images_meta, overwrite = TRUE, validate = TRUE)
 rm(geo_images_meta)
 
-# geo_routes -- THROWING ERROR WHEN IMPORTING>>>>>>NEED TO REVISIT THIS ONE!!!!!!!!!!!
-# geo_routes <- sf::st_read(con, query = "SELECT * FROM surv_pv_gla.geo_routes") %>%
-#   sf::as_Spatial()
-# arc.write(file.path(fgdb_path, "surv_pv_gla\\geo_routes"), data = geo_routes, overwrite = TRUE, validate = TRUE)
-# rm(geo_routes)
+# geo_routes
+geo_routes <- sf::st_read(con, query = "SELECT * FROM surv_pv_gla.geo_routes") %>%
+  st_cast(., "LINESTRING") %>%
+  st_zm(.) %>%
+  sf::as_Spatial()
+arc.write(file.path(fgdb_path, "surv_pv_gla\\geo_routes"), data = geo_routes, overwrite = TRUE, validate = TRUE)
+rm(geo_routes)
 
 # geo_waypoints -- THROWING ERROR WHEN IMPORTING>>>>>>NEED TO REVISIT THIS ONE!!!!!!!!!!!
 # geo_waypoints <- sf::st_read(con, query = "SELECT * FROM surv_pv_gla.geo_waypoints") %>%
