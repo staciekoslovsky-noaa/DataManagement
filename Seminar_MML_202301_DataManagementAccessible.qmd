@@ -1,16 +1,20 @@
 ---
-title: "How To Make Data Management Less Scary"
+title: "Data Management Made a Little Less Scary"
 subtitle: "Strategies to Meet You Where You Are"
 author: "Stacie Hardy, MML/PEP"
 date: '2023-01-13'
 format: revealjs
 logo: https://www.fisheries.noaa.gov/themes/custom/noaa_components/images/fisheries_header_logo_jul2019.png
-footer: "MML Seminar Series ~~~~~~~~~~ How To Make Data Management Less Scary ~~~~~~~~~~ Stacie Hardy"
+footer: "MML Seminar Series | Data Management Made a Little Less Scary | Stacie Hardy"
 ---
 
 ## Goals for Seminar
 
--   Share some data management concepts and examples
+::: columns
+::: {.column width="50%"}
+-   Define data management
+
+-   Share concepts and examples (and comics)
 
 -   Provide you with take-away actions:
 
@@ -19,21 +23,24 @@ footer: "MML Seminar Series ~~~~~~~~~~ How To Make Data Management Less Scary ~~
     -   Happy medium
 
     -   Bring it on!
+:::
 
-
+::: {.column width="50%"}
+![](https://www.oceangliders.org/wp-content/uploads/2017/10/data_management_chart.png)
+:::
+:::
 
 ## Overview {.smaller}
 
-Data are our legacy. The data we collect, manage and analyze today will continue to be available and used by staff in the future. It is, therefore, important to maintain and organize our data in a way that will be useful and meaningful to future users. This includes:
+Data are our legacy. The data we collect, manage and analyze today will continue to be available and used by staff in the future. It is, therefore, important to maintain, organize and share our data in a way that will be useful and meaningful to current-us and future-us. This includes:
 
--   Keeping files organized and up-to-date;
+-   Keeping files organized and up-to-date
 
--   Documenting information about the files and the process(es) for creating the files; and
+-   Documenting information about the files and the process(es) for creating the files
 
--   Cleaning out files (and paperwork) that are not important for the future legacy of the data (e.g. intermediate files, outdated information).
+But, data storage is costly, in terms of space for storing data, space for backing up data, and time for managing, organizing and documenting data, so...
 
-But, data storage is costly, in terms of space for storing data, space for backing up data, and time for managing, organizing and documenting data...so we want to be mindful in our data management strategies and application.
-
+*We want to be mindful in our data management strategies and application*.
 
 ## Ideally... {.smaller}
 
@@ -52,7 +59,6 @@ A well-designed data management system will:
 -   Be uniform in implementation; and
 
 -   Be expandable and flexible to meet future needs.
-
 
 ## Data Management Life Cycle
 
@@ -89,7 +95,6 @@ grViz("digraph flowchart {
       [7]: 'Integrate and Analyze (you know this part better than me)'
       ")
 ```
-
 
 ## Data Management Life Cycle
 
@@ -131,13 +136,11 @@ grViz("digraph flowchart {
       ")
 ```
 
-
 ## Plan {.smaller}
 
 Start your project and research off with good planning and design. Data management is just *one* part of this early planning (and the only focus of this presentation). Early planning takes a lot of work, but working through all these steps from the beginning will save you *so much* time later.
 
-(insert image from R)
-
+![](Seminar_MML_202301_DataManagementAccessible_files/images/planning.jpg){fig-align="center"}
 
 ## Plan {.smaller}
 
@@ -155,37 +158,95 @@ Start your project and research off with good planning and design. Data manageme
 
 -   Who is responsible for doing what? (an important one!)
 
+## Plan: Folder Organization Ideas {.smaller}
 
-## Plan: Folder Organization
+::: columns
+::: {.column width="50%"}
+-   Organize folders by date, project, species, etc. You'll have to find what works best for you.
 
-!-- How should data be stored? · Folder structure recommendations: o Create folders with a top-down hierarchy, i.e. folders should get more specific as you get deeper into folder organization. This will make long-term organization more efficient, will consolidate files to a layout that will be easy for others to interpret, and will improve information transfer among staff. § Weak File Structure (DON’T): · C:\\FirstName.LastName \DataRequest\_20150101 \MortalityDataUpdates \Request\_12DEC2014 \Shoreline \TemperatureFigures2 \TemperatureFigures\*v1 § Better file structure (DO or consider some variation that works best for you): · C:\\FirstName.LastName\* \DataRequests \Genetics\*20141212\* \Genetics\*20150101\* \GIS \Shoreline \Projects \Mortality \DataUpdates \TemperatureProbe \Figures\*v01\* \Figures\*v02 o For files on your computer: § Create a folder for your files in the root of your C:\\ named FirstName.LastName or FirstName_LastName (e.g. C:\\Joe.Scientist). Store all your working files within this folder. Note that this is different from the default file storage location (C:\Users\firstname.lastname\Documents or Libraries\Documents) § When you store files in your Windows-generated user’s folder (or on your desktop), other staff are not able to access these files without logging in with your account. Emergencies happen, so keep your files accessible. § Try to keep a clean desktop. If you are using your desktop for easily accessing files, create shortcuts on your desktop rather than keeping the file on your desktop. o For directories on the server, use the following general folder structure for each project subfolder. Not all projects will be able to fit this mold, but this structure will help keep data organized across multiple projects. Analysis\[description\] – for projects with multiple analyses, creating subfolders for each analysis may be helpful for better organizing data; within the analysis folder, the data, docs, GIS, metadata, scripts general directory structure can be used for consistency in data storage. Data – contains data collected in numerous formats, including databases, spreadsheets, etc. Docs – contains project proposals, reports, processing manuals, original field data sheets, etc. GIS – spatial data and programs associated with the project. NOTE\* If your GIS data are too large to be placed on a shared server, be sure to logically organize the file structure so that others will be able to determine folder contents. Consider adding a README.txt file describing where those files reside (i.e. personal computer or external hard drive with complete folder structure location: C:\firstname.lastname\GIS\data\shoreline\’file_name’). Metadata – copies of finalized metadata records and other metadata documentation, organized as needed. *NOTE* Should your metadata files be stored in a location other than with the actual data itself, the name of your metadata files should match those of the data files that the metadata represents. Scripts – not GIS-specific; e.g. R script files. Contents\[FolderName\]\[yyyymmdd\].docx – an explanatory README.txt file describing the contents of this project folder (with the date in the file name referring to the date the contents document was last updated). ·
+-   Create folders with a top-down hierarchy, i.e. folders should get more specific as you get deeper into folder organization.
 
+-   If you're going to do a big reorganization, consider deleting and archiving things first. Don't waste time organizing what you don't need to keep or expect to access regularly.
 
+-   For program-wide efforts, work together as a team to come up with different ways to store data, test out some mock-ups, and settle on a solution that works best for the group.
 
+-   Establish a system for version control (or use Git)
 
-## Plan: File Naming
+-   Organize images separately
 
-File names ideally describe the project, file contents, location, and date, and should be unique enough to stand alone as file descriptions. 
+-   Maintain whatever system you come up with (and that may mean making changes again if it's not working for you) -- check in, clean up annually
+:::
+
+::: {.column width="50%"}
+![](https://imgs.xkcd.com/comics/old_files.png)
+:::
+:::
+
+## Plan: File Naming {.smaller}
+
+::: columns
+::: {.column width="33%"}
+![](https://imgs.xkcd.com/comics/documents.png)
+:::
+
+::: {.column width="67%"}
+File names ideally describe the project, file contents, location, and date, and should be unique enough to stand alone as file descriptions.
 
 File names should be:
 
 -   Human-readable
+
 -   Machine-readable
+
 -   Plays well with default ordering (!)
-    
-    -   This could 
-    
-Examples:
 
+    -   This could
+:::
+:::
 
- File naming conventions: o Use project- or task-specific file naming conventions, when specified, for consistency and efficient sorting (e.g. vehicle logs, temperature probe data files). o File names should be unique, simple, and easy to understand. § DON’T: Plan 1.docx § DO: Project_DataMgmtPlan_v01.docx o Use underscores () to represent spaces. Avoid using spaces. This is a best practice as spaces will break hyperlinks in an address string. § DON’T: Section Data Management Plan.docx § DO: Project_DataMgmtPlan_2015_01_01.docx o Use only alpha-numeric characters. Special characters (e.g.: ? ! / \$ % \# \< \>) are often reserved for use by the operating system. If you need files to sort at the top of a list, precede with an underscore (). Preceding with an underscore should only be for personal file management and not for final document names or documents that are shared with others. § DON’T: !Project_DataMgmtPlan_v01.docx § DO: *Project_DataMgmtPlan_v01.docx o Use leading zeros with the numbers 0-9 to facilitate proper sorting and file management. § DON’T: Project_DataMgmtPlan_v1.docx § DO: Project_DataMgmtPlan_v01.docx o Dates should be used in file names in the year* month \_day order to maintain chronological order. § DON’T: 01JAN2015 or 1-1-2015 § DO: 20150101 or 2015_01_01 o Keep the file name as short as possible § DON’T: Project_DataMgmtPlan_OtherExtraneousInformation § DO: Project_DataMgmtPlan.docx o Using versioning to track different version of your file. This can either be by including the version number in the file name by using ‘v’ or ‘V’ and the version number at the end of the document or the date of the file with your initials/last name or some combination of the two. § Not all files will need versioning. Use versioning when it is important to track changes on some interval, when you are sharing files with others and when it may be important later. Discard obsolete versions once backups are made and/or they are no longer needed. § Avoid unclear names like last, final2, final revised, etc. § In Word, you can use the “last saved date” within a document (either at the top of the file or in the header/footer) to help keep track of the most current version. This can be added and tracked automatically: INSERT menu \> Quick Parts \> Field… \> Date and Time Category \> SaveDate. § VERSION – avoid putting the version or draft at the beginning of the file name to maintain a helpful sorting order. · DON’T: v1_Project_DataMgmtPlan.docx · DO: Project_DataMgmtPlan_v01.docx § DATE and INITIALS/LASTNAME – this is often a helpful tracking method when you are sharing a file with other staff. Put the date before your initials to maintain a helpful sorting order. · DON’T: Project_DataMgmtPlan_Stacie_1JAN2015.docx · DO: Project_DataMgmtPlan_20150101_ABC.docx o Order the pieces of information or elements being used to create the file name in the most logical order based on retrieval methods and generally from most general to most specific. § DON’T: Cause of death specific questions – 1Jan2015 – Mortality 2009-2013.doc § DO: Mortality_2009-2013_CauseOfDeathQuestions_20150101.doc What’s next? · 
+## Plan: File Naming Conventions {.smaller}
 
+-   File names should be unique, simple, and easy to understand.
+
+-   Use underscores (\_) to represent spaces. Avoid using spaces. This is a best practice as spaces will break hyperlinks in an address string.
+
+-   Use only alpha-numeric characters. Special characters (e.g.: ? ! / \$ % \# \< \>) are often reserved for use by the operating system. If you need files to sort at the top of a list, precede with an underscore (\_).
+
+-   Keep the file name as short as possible.
+
+-   Use leading zeros with the numbers 0-9 to facilitate proper sorting and file management.
+
+-   Dates should be used in file names in the year_month_day order to maintain chronological order.
+
+-   
+
+::: columns
+::: {.column width="50%"}
+**Don't's**
+
+-   Plan 1.docx
+
+-   Project_DataMgmtPlan_OtherExtraneousInformationToMakeThisReallyLong.docx
+
+-   01JAN2023 or 1-1-2023
+:::
+
+::: {.column width="50%"}
+**Do's**
+
+-   Project_DataMgmtPlan_v01.docx
+
+-   Project_DataMgmtPlan.docx
+
+-   20230101 or 2023-01-01 or 2023_01_01
+:::
+:::
+
+Keep the file name as short as possible § DON’T: Project_DataMgmtPlan_OtherExtraneousInformation § DO: Project_DataMgmtPlan.docx o Using versioning to track different version of your file. This can either be by including the version number in the file name by using ‘v’ or ‘V’ and the version number at the end of the document or the date of the file with your initials/last name or some combination of the two. § Not all files will need versioning. Use versioning when it is important to track changes on some interval, when you are sharing files with others and when it may be important later. Discard obsolete versions once backups are made and/or they are no longer needed. § Avoid unclear names like last, final2, final revised, etc. § In Word, you can use the “last saved date” within a document (either at the top of the file or in the header/footer) to help keep track of the most current version. This can be added and tracked automatically: INSERT menu \> Quick Parts \> Field… \> Date and Time Category \> SaveDate. § VERSION – avoid putting the version or draft at the beginning of the file name to maintain a helpful sorting order. · DON’T: v1_Project_DataMgmtPlan.docx · DO: Project_DataMgmtPlan_v01.docx § DATE and INITIALS/LASTNAME – this is often a helpful tracking method when you are sharing a file with other staff. Put the date before your initials to maintain a helpful sorting order. · DON’T: Project_DataMgmtPlan_Stacie_1JAN2015.docx · DO: Project_DataMgmtPlan_20150101_ABC.docx o Order the pieces of information or elements being used to create the file name in the most logical order based on retrieval methods and generally from most general to most specific. § DON’T: Cause of death specific questions – 1Jan2015 – Mortality 2009-2013.doc § DO: Mortality_2009-2013_CauseOfDeathQuestions_20150101.doc What’s next? ·
 
 ## Plan: Google Drive
 
-Oof, Google Drive. 
-
-
+Oof, Google Drive.
 
 ## Plan: Reproducibility
 
@@ -241,6 +302,8 @@ Oof, Google Drive.
 
 ## Assure
 
+![](https://dilbert.com/strip/2014-05-07)
+
 ## Assure: Take-away Actions {.smaller}
 
 ::: columns
@@ -264,6 +327,15 @@ Oof, Google Drive.
 :::
 
 ## Describe
+
+::: columns
+::: {.column width="50%"}
+:::
+
+::: {.column width="50%"}
+![](https://imgs.xkcd.com/comics/every_data_table.png)
+:::
+:::
 
 ## Describe: Take-away Actions {.smaller}
 
@@ -289,7 +361,7 @@ Oof, Google Drive.
 
 ## Preserve
 
-- Metadata
+-   Metadata
 
 ## Preserve: Take-away Actions {.smaller}
 
@@ -361,46 +433,49 @@ Oof, Google Drive.
 :::
 :::
 
-
-
-## DEIA-related to Data Management {.scrollable}
+## DEIA-related to Data Management {.smaller}
 
 Make data management practices more diverse, equitable, inclusive, and accessible:
 
--   Targeting users of all technical backgrounds and developing systems that are accommodating to everyone
+-   Target users of all technical backgrounds and develop systems that are accommodating to everyone
 
-    -   Recognizing different comfort levels of technology and different ways of processing information 
+    -   Recognize different comfort levels of technology and different ways of processing information
     -   Don't want to leave anyone behind!
     -   Create supportive environment for those struggles/challenges
-    -   Making space for different ideas, perspectives, work styles
+    -   Make space for different ideas, perspectives, work styles
 
--   Avoiding gate-keeping of ideas, processes, workflows, data
+-   Avoid gate-keeping of ideas, processes, workflows, data
 
-    -   Increasing transparency
-    -   Thinking about data management as a complementary process to the research
-    -   Working with one another -- all on the same team of trying to move research efforts forward
+    -   Increase transparency
+    -   Think about data management as a complementary process to the research
+    -   Work with one another -- all on the same team of trying to move research efforts forward
 
--   Recognizing this work is often un(der)funded and un(der)staffed...and sometimes un(der)recognized
+-   Recognize this work is often un(der)funded and un(der)staffed...and sometimes un(der)recognized
 
--   Making the information you're presenting accessible (e.g., alt text, colorblindness)
-
-(insert TIDE logo)
-
+-   Make the information you're presenting accessible (e.g., alt text, colorblindness)
 
 ## Reminders {.smaller}
 
 For life and data management:
 
 -   Keep it simple.
+
 -   Start where you are.
+
 -   Not everything has to be a "stretch exercise."
--   Not every project/problem/situation will have the same technology solution.
+
+-   Not every project/problem/situation will have the same technology solution. Find and use the best technology for the task at hand.
+
 -   Don't compare yourself to other people.
+
 -   Don't be afraid to try new things or fail the first (or first few times) you try something new.
+
 -   Celebrate your successes!
+
 -   Ask others for help, if you're stuck or want a different perspective.
 
 ## Next Steps
+
 -   At least 50% of data management is people management
 
 -   This information can be applied to your individual work or to projects.
@@ -409,14 +484,14 @@ For life and data management:
     -   For projects, this can (and probably should) be a team effort. No one person can likely do all the things. Be clear
 
 -   This presentation may have been a little or a lot of new information for you.
-    
+
     -   If it was just a little new information for you, you're off to a great start!
     -   If it was a lot of new information for you (and maybe you're feeling overwhelmed with where to start), pick one thing and give it a try.
-    
-<For new staff o Take time to set up a filing system that will work for you. · For departing staff o Go through your files: § Clean out any information that no longer needs to be kept; § Organize and document what does need to be kept. o Meet with your supervisor to go through files prior to your last day. · For all staff: o Review data management plan annually in June. o Throughout the year, staff are expected to implement sound data management practices, as outlined in this document. Regular review – at a minimum once year o CHECK EXTERNAL HARD DRIVES to make sure they are working properly. This includes connecting them to the computer and checking that you can read/write files to this device. All external hard drives that are not regularly accessed should be checked regularly. · PURGE – clean out files and other items that have reached the end of their retention period or are considered obsolete. 
+
+\<For new staff o Take time to set up a filing system that will work for you. · For departing staff o Go through your files: § Clean out any information that no longer needs to be kept; § Organize and document what does need to be kept. o Meet with your supervisor to go through files prior to your last day. · For all staff: o Review data management plan annually in June. o Throughout the year, staff are expected to implement sound data management practices, as outlined in this document. Regular review – at a minimum once year o CHECK EXTERNAL HARD DRIVES to make sure they are working properly. This includes connecting them to the computer and checking that you can read/write files to this device. All external hard drives that are not regularly accessed should be checked regularly. · PURGE – clean out files and other items that have reached the end of their retention period or are considered obsolete.
 
 ## Resources
 
 -   PEP Data Management Plan
--   \\url(DataOne Primer on Data Management)<https://repository.oceanbestpractices.org/bitstream/handle/11329/502/DataONE_BP_Primer_020212.pdf>
--   Harvard Biomedical Data Lifecycle: https://datamanagement.hms.harvard.edu/plan-design/biomedical-data-lifecycle
+-   [DataOne Primer on Data Management](https://repository.oceanbestpractices.org/bitstream/handle/11329/502/DataONE_BP_Primer_020212.pdf)
+-   [Harvard Biomedical Data Lifecycle](https://datamanagement.hms.harvard.edu/plan-design/biomedical-data-lifecycle)
