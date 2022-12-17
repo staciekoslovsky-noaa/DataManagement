@@ -32,7 +32,9 @@ footer: "MML Seminar Series | Data Management Made a Little Less Scary | Stacie 
 
 ## Overview {.smaller}
 
-Data are our legacy. The data we collect, manage and analyze today will continue to be available and used by staff in the future. It is, therefore, important to maintain, organize and share our data in a way that will be useful and meaningful to current-us and future-us. This includes:
+Data are our legacy.
+
+The data we collect, manage and analyze today will continue to be available and used by staff in the future. It is, therefore, important to maintain, organize and share our data in a way that will be useful and meaningful to current-us and future-us. This includes:
 
 -   Keeping files organized and up-to-date
 
@@ -41,6 +43,20 @@ Data are our legacy. The data we collect, manage and analyze today will continue
 But, data storage is costly, in terms of space for storing data, space for backing up data, and time for managing, organizing and documenting data, so...
 
 *We want to be mindful in our data management strategies and application*.
+
+## NOAA Data Strategy
+
+From 2020 NOAA Data Strategy: "Data are at the heart of NOAA's \$5 billion per year enterprise. ... NOAA data are a critical strategic asset used to ensure accountability, manage operations, and to maintain and enhance the performance of the economy, public health, and welfare."
+
+-   **Goal 1**: Align data management leadership roles across the organization.
+
+-   **Goal 2**: Govern and manage data strategically to most effectively steward the US taxpayers' investment.
+
+-   **Goal 3**: Share data as openly and widely as possible to promote maximum utilization of NOAA data.
+
+-   **Goal 4**: Promote data innovation and quality improvements to facilitate science and support data-driven decision making.
+
+-   **Goal 5**: Engage stakeholders and leverage partnerships to maximize the value of NOAA data to the Nation.
 
 ## Ideally... {.smaller}
 
@@ -162,7 +178,7 @@ Start your project and research off with good planning and design. Data manageme
 
 ::: columns
 ::: {.column width="50%"}
--   Organize folders by date, project, species, etc. You'll have to find what works best for you.
+-   Organize folders by date, project, species, etc. You'll have to find what works best for you and your program.
 
 -   Create folders with a top-down hierarchy, i.e. folders should get more specific as you get deeper into folder organization.
 
@@ -170,11 +186,13 @@ Start your project and research off with good planning and design. Data manageme
 
 -   For program-wide efforts, work together as a team to come up with different ways to store data, test out some mock-ups, and settle on a solution that works best for the group.
 
--   Establish a system for version control (or use Git)
+-   Don't store final data only on your laptop!
 
--   Organize images separately
+-   Establish a system for version control (e.g. file-naming, Git).
 
--   Maintain whatever system you come up with (and that may mean making changes again if it's not working for you) -- check in, clean up annually
+-   Organize images separately.
+
+-   Maintain whatever system you come up with (and that may mean making changes again if it's not working for you) -- check in, clean up annually.
 :::
 
 ::: {.column width="50%"}
@@ -270,7 +288,7 @@ Oof, Google Drive.
 ::: {.column width="33%"}
 **Bring it on!**
 
--   Develop a comprehensive data management plan
+-   Develop a comprehensive data management plan for your project and/or program
 
 -   Use common planning and structures across program projects
 :::
@@ -495,3 +513,4 @@ For life and data management:
 -   PEP Data Management Plan
 -   [DataOne Primer on Data Management](https://repository.oceanbestpractices.org/bitstream/handle/11329/502/DataONE_BP_Primer_020212.pdf)
 -   [Harvard Biomedical Data Lifecycle](https://datamanagement.hms.harvard.edu/plan-design/biomedical-data-lifecycle)
+-   [NOAA Data Strategy: Maximizing the Value of NOAA Data](https://sciencecouncil.noaa.gov/Portals/0/2020%20Data%20Strategy.pdf?ver=2020-09-17-150024-997)
