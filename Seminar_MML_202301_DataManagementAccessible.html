@@ -351,14 +351,25 @@
 </section>
 <section id="overview" class="slide level2 smaller">
 <h2>Overview</h2>
-<p>Data are our legacy. The data we collect, manage and analyze today will continue to be available and used by staff in the future. It is, therefore, important to maintain and organize our data in a way that will be useful and meaningful to future users. This includes:</p>
+<p>Data are our legacy.</p>
+<p>The data we collect, manage and analyze today will continue to be available and used by staff in the future. It is, therefore, important to maintain, organize and share our data in a way that will be useful and meaningful to current-us and future-us. This includes:</p>
 <ul>
 <li><p>Keeping files organized and up-to-date</p></li>
 <li><p>Documenting information about the files and the process(es) for creating the files</p></li>
-<li><p>Cleaning out files (and paperwork) that are not important for the future legacy of the data (e.g.&nbsp;intermediate files, outdated information)</p></li>
 </ul>
 <p>But, data storage is costly, in terms of space for storing data, space for backing up data, and time for managing, organizing and documenting data, so…</p>
 <p><em>We want to be mindful in our data management strategies and application</em>.</p>
+</section>
+<section id="noaa-data-strategy" class="slide level2 smaller">
+<h2>NOAA Data Strategy</h2>
+<p>From 2020 NOAA Data Strategy: “Data are at the heart of NOAA’s $5 billion per year enterprise. … NOAA data are a critical strategic asset used to ensure accountability, manage operations, and to maintain and enhance the performance of the economy, public health, and welfare.”</p>
+<ul>
+<li><p><strong>Goal 1</strong>: Align data management leadership roles across the organization.</p></li>
+<li><p><strong>Goal 2</strong>: Govern and manage data strategically to most effectively steward the US taxpayers’ investment.</p></li>
+<li><p><strong>Goal 3</strong>: Share data as openly and widely as possible to promote maximum utilization of NOAA data.</p></li>
+<li><p><strong>Goal 4</strong>: Promote data innovation and quality improvements to facilitate science and support data-driven decision making.</p></li>
+<li><p><strong>Goal 5</strong>: Engage stakeholders and leverage partnerships to maximize the value of NOAA data to the Nation.</p></li>
+</ul>
 </section>
 <section id="ideally" class="slide level2 smaller">
 <h2>Ideally…</h2>
@@ -377,8 +388,8 @@
 <h2>Data Management Life Cycle</h2>
 <div class="cell" data-warnings="false" height="5">
 <div class="cell-output-display">
-<div id="htmlwidget-2826ce0f02f7d567233a" style="width:960px;height:480px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-2826ce0f02f7d567233a">{"x":{"diagram":"digraph flowchart {\n      # node definitions with substituted label text\n      node [fontname = Arial, shape = rectangle, penwidth = 3]        \n      tab1 [label = \"Plan (as best and as much as you can)\", color = MediumVioletRed]\n      tab2 [label = \"Collect (the fun part, most of the time)\", color = Tomato]\n      tab3 [label = \"Assure (quality assurance and control)\", color = Gold]\n      tab4 [label = \"Describe (data documentation)\", color = YellowGreen]\n      tab5 [label = \"Preserve (at data center or archive)\", color = DarkOliveGreen]\n      tab6 [label = \"Discover (make your data findable)\", color = CadetBlue]\n      tab7 [label = \"Integrate and Analyze (you know this part better than me)\", color = Navy]\n\n      # edge definitions with the node IDs\n      tab1 -> tab2;\n      tab2 -> tab3;\n      tab3 -> tab4;\n      tab4 -> tab5;\n      tab5 -> tab6;\n      tab6 -> tab7;\n      tab7 -> tab1;\n      }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-d09b46b1258e07812648" style="width:960px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-d09b46b1258e07812648">{"x":{"diagram":"digraph flowchart {\n      # node definitions with substituted label text\n      node [fontname = Arial, shape = rectangle, penwidth = 3]        \n      tab1 [label = \"Plan (as best and as much as you can)\", color = MediumVioletRed]\n      tab2 [label = \"Collect (the fun part, most of the time)\", color = Tomato]\n      tab3 [label = \"Assure (quality assurance and control)\", color = Gold]\n      tab4 [label = \"Describe (data documentation)\", color = YellowGreen]\n      tab5 [label = \"Preserve (at data center or archive)\", color = DarkOliveGreen]\n      tab6 [label = \"Discover (make your data findable)\", color = CadetBlue]\n      tab7 [label = \"Integrate and Analyze (you know this part better than me)\", color = Navy]\n\n      # edge definitions with the node IDs\n      tab1 -> tab2;\n      tab2 -> tab3;\n      tab3 -> tab4;\n      tab4 -> tab5;\n      tab5 -> tab6;\n      tab6 -> tab7;\n      tab7 -> tab1;\n      }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <p>Adopted from DataOne.</p>
 </div>
 </div>
@@ -387,15 +398,19 @@
 <h2>Data Management Life Cycle</h2>
 <div class="cell" data-warnings="false" height="5">
 <div class="cell-output-display">
-<div id="htmlwidget-c7a41119d64358950905" style="width:960px;height:480px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-c7a41119d64358950905">{"x":{"diagram":"digraph flowchart {\n      # node definitions with substituted label text\n      node [fontname = Arial, shape = rectangle, penwidth = 3]        \n      tab1 [label = \"Plan (as best and as much as you can)\", color = MediumVioletRed]\n      tab2 [label = \"Collect (the fun part, most of the time)\", color = Tomato]\n      tab3 [label = \"Assure (quality assurance and control)\", color = Gold]\n      tab4 [label = \"Describe (data documentation)\", color = YellowGreen]\n      tab5 [label = \"Preserve (at data center or archive)\", color = DarkOliveGreen]\n      tab6 [label = \"Discover (make your data findable)\", color = CadetBlue]\n      tab7 [label = \"Integrate and Analyze (you likely know this part better than me)\", color = Navy]\n\n      # edge definitions with the node IDs\n      tab1 -> tab2;\n      tab2 -> tab3;\n      tab2 -> tab7 [color = Orange, penwidth = 4];\n      tab3 -> tab4;\n      tab3 -> tab1;\n      tab3 -> tab7;\n      tab4 -> tab5;\n      tab5 -> tab6;\n      tab6 -> tab7;\n      tab7 -> tab1;\n      tab7 -> tab4;\n      tab7 -> tab2  [color = Red, penwidth = 4];\n      tab2 -> tab7  [color = Red, penwidth = 4];\n      }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-f28a307c8fc10fa5c893" style="width:960px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-f28a307c8fc10fa5c893">{"x":{"diagram":"digraph flowchart {\n      # node definitions with substituted label text\n      node [fontname = Arial, shape = rectangle, penwidth = 3]        \n      tab1 [label = \"Plan (as best and as much as you can)\", color = MediumVioletRed]\n      tab2 [label = \"Collect (the fun part, most of the time)\", color = Tomato]\n      tab3 [label = \"Assure (quality assurance and control)\", color = Gold]\n      tab4 [label = \"Describe (data documentation)\", color = YellowGreen]\n      tab5 [label = \"Preserve (at data center or archive)\", color = DarkOliveGreen]\n      tab6 [label = \"Discover (make your data findable)\", color = CadetBlue]\n      tab7 [label = \"Integrate and Analyze (you likely know this part better than me)\", color = Navy]\n\n      # edge definitions with the node IDs\n      tab1 -> tab2;\n      tab2 -> tab3;\n      tab2 -> tab7 [color = Orange, penwidth = 4];\n      tab3 -> tab4;\n      tab3 -> tab1;\n      tab3 -> tab7;\n      tab4 -> tab5;\n      tab5 -> tab6;\n      tab6 -> tab7;\n      tab7 -> tab1;\n      tab7 -> tab4;\n      tab7 -> tab2  [color = Red, penwidth = 4];\n      tab2 -> tab7  [color = Red, penwidth = 4];\n      }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <p>Reimagined to reflect common practices.</p>
 </div>
 </div>
 </section>
 <section id="plan" class="slide level2 smaller">
 <h2>Plan</h2>
-<p>Start your project and research off with good planning and design. Data management is just <em>one</em> part of this early planning (and the only focus of this presentation). Early planning takes a lot of work, but working through all these steps from the beginning will save you <em>so much</em> time later.</p>
+<ul>
+<li><p>Start your project and research off with good planning and design.</p></li>
+<li><p>Data management is just <em>one</em> part of this early planning (and the only focus of this presentation).</p></li>
+<li><p>Early planning takes a lot of work, but working through all these steps from the beginning will save you <em>so much</em> time later.</p></li>
+</ul>
 
 <img data-src="Seminar_MML_202301_DataManagementAccessible_files/images/planning.jpg" class="r-stretch quarto-figure-center"></section>
 <section id="plan-1" class="slide level2 smaller">
@@ -408,6 +423,7 @@
 <li><p>How will the data be organized? What does the folder structure look like? How will files be named?</p></li>
 <li><p>What does the database structure look like? How will data be entered or imported?</p></li>
 </ul></li>
+<li><p>How will information about the data be preserved? (meeting notes, important decisions, etc.)</p></li>
 <li><p>How will the data move through all the subsequent steps (collection, assurance, description, preservation, discovery, integration and analysis)?</p></li>
 <li><p>Who is responsible for doing what? (an important one!)</p></li>
 </ul>
@@ -415,17 +431,18 @@
 <section id="plan-folder-organization-ideas" class="slide level2 smaller">
 <h2>Plan: Folder Organization Ideas</h2>
 <div class="columns">
-<div class="column" style="width:50%;">
+<div class="column smaller" style="width:70%;">
 <ul>
-<li><p>Organize folders by date, project, species, etc. You’ll have to find what works best for you.</p></li>
-<li><p>Create folders with a top-down hierarchy, i.e.&nbsp;folders should get more specific as you get deeper into folder organization.</p></li>
-<li><p>If you’re going to do a big reorganization, consider deleting and archiving things first. Don’t waste time organizing what you don’t need to keep or expect to access regularly.</p></li>
+<li><p>Consider how to organize folders (by date, project, species).</p></li>
+<li><p>Create folders with a top-down hierarchy.</p></li>
+<li><p>If you’re going to do a big reorganization, consider deleting and archiving things first.</p></li>
 <li><p>For program-wide efforts, work together as a team to come up with different ways to store data, test out some mock-ups, and settle on a solution that works best for the group.</p></li>
-<li><p>Establish a system for version control (or use Git)</p></li>
-<li><p>Organize images separately</p></li>
-<li><p>Maintain whatever system you come up with (and that may mean making changes again if it’s not working for you) – check in, clean up annually</p></li>
+<li><p>Don’t store final data only on your laptop!</p></li>
+<li><p>Establish a system for version control (e.g.&nbsp;file-naming, Git). Not everything needs version control. Delete obsolete versions of files.</p></li>
+<li><p>Organize images separately.</p></li>
+<li><p>Maintain whatever system you come up with – check in, adjust it, and clean it up annually.</p></li>
 </ul>
-</div><div class="column" style="width:50%;">
+</div><div class="column" style="width:30%;">
 <p><img data-src="https://imgs.xkcd.com/comics/old_files.png"></p>
 </div>
 </div>
@@ -443,9 +460,11 @@
 <li><p>Machine-readable</p></li>
 <li><p>Plays well with default ordering (!)</p>
 <ul>
-<li>This could</li>
+<li>This may mean different solutions for different projects/reasons.</li>
+<li>Order by date, number, name, etc.</li>
 </ul></li>
 </ul>
+<p>Order the pieces of information or elements being used to create the file name in the most logical order based on retrieval methods and generally from most general to most specific.</p>
 </div>
 </div>
 </section>
@@ -454,11 +473,15 @@
 <ul>
 <li><p>File names should be unique, simple, and easy to understand.</p></li>
 <li><p>Use underscores (_) to represent spaces. Avoid using spaces. This is a best practice as spaces will break hyperlinks in an address string.</p></li>
-<li><p>Use only alpha-numeric characters. Special characters (e.g.: ? ! / $ % # &lt; &gt;) are often reserved for use by the operating system. If you need files to sort at the top of a list, precede with an underscore (_).</p></li>
+<li><p>Use only alpha-numeric characters.</p>
+<ul>
+<li><p>Special characters (e.g.: ? ! / $ % # &lt; &gt;) are often reserved for use by the operating system.</p></li>
+<li><p>If you need files to sort at the (very) top of a list, precede with an underscore (_).</p></li>
+</ul></li>
 <li><p>Keep the file name as short as possible.</p></li>
-<li><p>Use leading zeros with the numbers 0-9 to facilitate proper sorting and file management.</p></li>
-<li><p>Dates should be used in file names in the year_month_day order to maintain chronological order.</p></li>
-<li></li>
+<li><p>Use leading zeros with the numbers 0-9 to facilitate better sorting.</p></li>
+<li><p>Dates should formatted to maintain chronological order (YYYYMMDD).</p></li>
+<li><p>Avoid unclear names like last, final2, final revised, etc.</p></li>
 </ul>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -472,21 +495,44 @@
 <p><strong>Do’s</strong></p>
 <ul>
 <li><p>Project_DataMgmtPlan_v01.docx</p></li>
-<li><p>Project_DataMgmtPlan.docx</p></li>
+<li><p>Project_DataMgmtPlan_ShorterDetails.docx</p></li>
 <li><p>20230101 or 2023-01-01 or 2023_01_01</p></li>
 </ul>
 </div>
 </div>
-<p>Keep the file name as short as possible § DON’T: Project_DataMgmtPlan_OtherExtraneousInformation § DO: Project_DataMgmtPlan.docx o Using versioning to track different version of your file. This can either be by including the version number in the file name by using ‘v’ or ‘V’ and the version number at the end of the document or the date of the file with your initials/last name or some combination of the two. § Not all files will need versioning. Use versioning when it is important to track changes on some interval, when you are sharing files with others and when it may be important later. Discard obsolete versions once backups are made and/or they are no longer needed. § Avoid unclear names like last, final2, final revised, etc. § In Word, you can use the “last saved date” within a document (either at the top of the file or in the header/footer) to help keep track of the most current version. This can be added and tracked automatically: INSERT menu &gt; Quick Parts &gt; Field… &gt; Date and Time Category &gt; SaveDate. § VERSION – avoid putting the version or draft at the beginning of the file name to maintain a helpful sorting order. · DON’T: v1_Project_DataMgmtPlan.docx · DO: Project_DataMgmtPlan_v01.docx § DATE and INITIALS/LASTNAME – this is often a helpful tracking method when you are sharing a file with other staff. Put the date before your initials to maintain a helpful sorting order. · DON’T: Project_DataMgmtPlan_Stacie_1JAN2015.docx · DO: Project_DataMgmtPlan_20150101_ABC.docx o Order the pieces of information or elements being used to create the file name in the most logical order based on retrieval methods and generally from most general to most specific. § DON’T: Cause of death specific questions – 1Jan2015 – Mortality 2009-2013.doc § DO: Mortality_2009-2013_CauseOfDeathQuestions_20150101.doc What’s next? ·</p>
 </section>
 <section id="plan-google-drive" class="slide level2">
 <h2>Plan: Google Drive</h2>
 <p>Oof, Google Drive.</p>
+<p>There are two camps here (and I’ve highlighted some considerations for each):</p>
+<ul>
+<li><p>Let your files be (exist wherever they exist) and share as-needed</p>
+<ul>
+<li><p>Requires little to no folder organization overhead</p></li>
+<li><p>Relies on the searching functionality within Google Drive to find things (pro and con)</p></li>
+</ul></li>
+<li><p>Organize your files like you would a folder structure on the network or on your computer</p>
+<ul>
+<li><p>Simpler for on-boarding new staff (who may not know what to search for)</p></li>
+<li><p>Can provide a more clear framework for groups working together</p></li>
+<li><p>More overhead required for managing files</p></li>
+</ul></li>
+</ul>
+<p>For larger groups (at the program- or project-scale), personally, I’d recommend organizing a centralized folder system and sharing within that, but either way, it’s a good conversation to have.</p>
 </section>
 <section id="plan-reproducibility" class="slide level2">
 <h2>Plan: Reproducibility</h2>
 <ul>
-<li>PARR</li>
+<li>Think about how you’re going to…
+<ul>
+<li><p>Document your processing</p>
+<ul>
+<li><p>Code is a really nice way to do this.</p></li>
+<li><p>If that’s scary or not in your toolkit, writing down the steps in a (shared) document is also totally okay.</p></li>
+</ul></li>
+<li><p>Archive versions of the data used for analyses, if they cannot be otherwise recreated.</p></li>
+<li><p>PARR</p></li>
+</ul></li>
 </ul>
 </section>
 <section id="plan-take-away-actions" class="slide level2 smaller">
@@ -495,17 +541,18 @@
 <div class="column" style="width:33%;">
 <p><strong>Start small</strong></p>
 <ul>
-<li></li>
+<li><p>That was a lot of information.</p></li>
+<li><p>Pick one thing that you think would be most beneficial for you to try. Build incrementally.</p></li>
 </ul>
 </div><div class="column" style="width:33%;">
 <p><strong>Happy medium</strong></p>
 <ul>
-<li></li>
+<li>Work with other members of your program/project to start to bring more of these measures into your work.</li>
 </ul>
 </div><div class="column" style="width:33%;">
 <p><strong>Bring it on!</strong></p>
 <ul>
-<li><p>Develop a comprehensive data management plan</p></li>
+<li><p>Develop a comprehensive data management plan for your project and/or program</p></li>
 <li><p>Use common planning and structures across program projects</p></li>
 </ul>
 </div>
@@ -724,6 +771,7 @@
 <li>PEP Data Management Plan</li>
 <li><a href="https://repository.oceanbestpractices.org/bitstream/handle/11329/502/DataONE_BP_Primer_020212.pdf">DataOne Primer on Data Management</a></li>
 <li><a href="https://datamanagement.hms.harvard.edu/plan-design/biomedical-data-lifecycle">Harvard Biomedical Data Lifecycle</a></li>
+<li><a href="https://sciencecouncil.noaa.gov/Portals/0/2020%20Data%20Strategy.pdf?ver=2020-09-17-150024-997">NOAA Data Strategy: Maximizing the Value of NOAA Data</a></li>
 </ul>
 
 <img src="https://www.fisheries.noaa.gov/themes/custom/noaa_components/images/fisheries_header_logo_jul2019.png" class="slide-logo r-stretch"><div class="footer footer-default">

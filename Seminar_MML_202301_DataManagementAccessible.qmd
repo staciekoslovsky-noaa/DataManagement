@@ -44,7 +44,7 @@ But, data storage is costly, in terms of space for storing data, space for backi
 
 *We want to be mindful in our data management strategies and application*.
 
-## NOAA Data Strategy
+## NOAA Data Strategy {.smaller}
 
 From 2020 NOAA Data Strategy: "Data are at the heart of NOAA's \$5 billion per year enterprise. ... NOAA data are a critical strategic asset used to ensure accountability, manage operations, and to maintain and enhance the performance of the economy, public health, and welfare."
 
@@ -154,7 +154,11 @@ grViz("digraph flowchart {
 
 ## Plan {.smaller}
 
-Start your project and research off with good planning and design. Data management is just *one* part of this early planning (and the only focus of this presentation). Early planning takes a lot of work, but working through all these steps from the beginning will save you *so much* time later.
+-   Start your project and research off with good planning and design.
+
+-   Data management is just *one* part of this early planning (and the only focus of this presentation).
+
+-   Early planning takes a lot of work, but working through all these steps from the beginning will save you *so much* time later.
 
 ![](Seminar_MML_202301_DataManagementAccessible_files/images/planning.jpg){fig-align="center"}
 
@@ -170,6 +174,8 @@ Start your project and research off with good planning and design. Data manageme
 
     -   What does the database structure look like? How will data be entered or imported?
 
+-   How will information about the data be preserved? (meeting notes, important decisions, etc.)
+
 -   How will the data move through all the subsequent steps (collection, assurance, description, preservation, discovery, integration and analysis)?
 
 -   Who is responsible for doing what? (an important one!)
@@ -177,25 +183,25 @@ Start your project and research off with good planning and design. Data manageme
 ## Plan: Folder Organization Ideas {.smaller}
 
 ::: columns
-::: {.column width="50%"}
--   Organize folders by date, project, species, etc. You'll have to find what works best for you and your program.
+::: {.column .smaller width="70%"}
+-   Consider how to organize folders (by date, project, species).
 
--   Create folders with a top-down hierarchy, i.e. folders should get more specific as you get deeper into folder organization.
+-   Create folders with a top-down hierarchy.
 
--   If you're going to do a big reorganization, consider deleting and archiving things first. Don't waste time organizing what you don't need to keep or expect to access regularly.
+-   If you're going to do a big reorganization, consider deleting and archiving things first.
 
 -   For program-wide efforts, work together as a team to come up with different ways to store data, test out some mock-ups, and settle on a solution that works best for the group.
 
 -   Don't store final data only on your laptop!
 
--   Establish a system for version control (e.g. file-naming, Git).
+-   Establish a system for version control (e.g. file-naming, Git). Not everything needs version control. Delete obsolete versions of files.
 
 -   Organize images separately.
 
--   Maintain whatever system you come up with (and that may mean making changes again if it's not working for you) -- check in, clean up annually.
+-   Maintain whatever system you come up with -- check in, adjust it, and clean it up annually.
 :::
 
-::: {.column width="50%"}
+::: {.column width="30%"}
 ![](https://imgs.xkcd.com/comics/old_files.png)
 :::
 :::
@@ -218,7 +224,10 @@ File names should be:
 
 -   Plays well with default ordering (!)
 
-    -   This could
+    -   This may mean different solutions for different projects/reasons.
+    -   Order by date, number, name, etc.
+
+Order the pieces of information or elements being used to create the file name in the most logical order based on retrieval methods and generally from most general to most specific.
 :::
 :::
 
@@ -228,15 +237,19 @@ File names should be:
 
 -   Use underscores (\_) to represent spaces. Avoid using spaces. This is a best practice as spaces will break hyperlinks in an address string.
 
--   Use only alpha-numeric characters. Special characters (e.g.: ? ! / \$ % \# \< \>) are often reserved for use by the operating system. If you need files to sort at the top of a list, precede with an underscore (\_).
+-   Use only alpha-numeric characters.
+
+    -   Special characters (e.g.: ? ! / \$ % \# \< \>) are often reserved for use by the operating system.
+
+    -   If you need files to sort at the (very) top of a list, precede with an underscore (\_).
 
 -   Keep the file name as short as possible.
 
--   Use leading zeros with the numbers 0-9 to facilitate proper sorting and file management.
+-   Use leading zeros with the numbers 0-9 to facilitate better sorting.
 
--   Dates should be used in file names in the year_month_day order to maintain chronological order.
+-   Dates should formatted to maintain chronological order (YYYYMMDD).
 
--   
+-   Avoid unclear names like last, final2, final revised, etc.
 
 ::: columns
 ::: {.column width="50%"}
@@ -254,21 +267,46 @@ File names should be:
 
 -   Project_DataMgmtPlan_v01.docx
 
--   Project_DataMgmtPlan.docx
+-   Project_DataMgmtPlan_ShorterDetails.docx
 
 -   20230101 or 2023-01-01 or 2023_01_01
 :::
 :::
 
-Keep the file name as short as possible § DON’T: Project_DataMgmtPlan_OtherExtraneousInformation § DO: Project_DataMgmtPlan.docx o Using versioning to track different version of your file. This can either be by including the version number in the file name by using ‘v’ or ‘V’ and the version number at the end of the document or the date of the file with your initials/last name or some combination of the two. § Not all files will need versioning. Use versioning when it is important to track changes on some interval, when you are sharing files with others and when it may be important later. Discard obsolete versions once backups are made and/or they are no longer needed. § Avoid unclear names like last, final2, final revised, etc. § In Word, you can use the “last saved date” within a document (either at the top of the file or in the header/footer) to help keep track of the most current version. This can be added and tracked automatically: INSERT menu \> Quick Parts \> Field… \> Date and Time Category \> SaveDate. § VERSION – avoid putting the version or draft at the beginning of the file name to maintain a helpful sorting order. · DON’T: v1_Project_DataMgmtPlan.docx · DO: Project_DataMgmtPlan_v01.docx § DATE and INITIALS/LASTNAME – this is often a helpful tracking method when you are sharing a file with other staff. Put the date before your initials to maintain a helpful sorting order. · DON’T: Project_DataMgmtPlan_Stacie_1JAN2015.docx · DO: Project_DataMgmtPlan_20150101_ABC.docx o Order the pieces of information or elements being used to create the file name in the most logical order based on retrieval methods and generally from most general to most specific. § DON’T: Cause of death specific questions – 1Jan2015 – Mortality 2009-2013.doc § DO: Mortality_2009-2013_CauseOfDeathQuestions_20150101.doc What’s next? ·
-
 ## Plan: Google Drive
 
 Oof, Google Drive.
 
+There are two camps here (and I've highlighted some considerations for each):
+
+-   Let your files be (exist wherever they exist) and share as-needed
+
+    -   Requires little to no folder organization overhead
+
+    -   Relies on the searching functionality within Google Drive to find things (pro and con)
+
+-   Organize your files like you would a folder structure on the network or on your computer
+
+    -   Simpler for on-boarding new staff (who may not know what to search for)
+
+    -   Can provide a more clear framework for groups working together
+
+    -   More overhead required for managing files
+
+For larger groups (at the program- or project-scale), personally, I'd recommend organizing a centralized folder system and sharing within that, but either way, it's a good conversation to have.
+
 ## Plan: Reproducibility
 
--   PARR
+-   Think about how you're going to...
+    -   Document your processing
+
+        -   Code is a really nice way to do this.
+
+        -   If that's scary or not in your toolkit, writing down the steps in a (shared) document is also totally okay.
+
+    -   Archive versions of the data used for analyses, if they cannot be otherwise recreated.
+
+    -   PARR
 
 ## Plan: Take-away Actions {.smaller}
 
@@ -276,13 +314,15 @@ Oof, Google Drive.
 ::: {.column width="33%"}
 **Start small**
 
--   
+-   That was a lot of information.
+
+-   Pick one thing that you think would be most beneficial for you to try. Build incrementally.
 :::
 
 ::: {.column width="33%"}
 **Happy medium**
 
--   
+-   Work with other members of your program/project to start to bring more of these measures into your work.
 :::
 
 ::: {.column width="33%"}
