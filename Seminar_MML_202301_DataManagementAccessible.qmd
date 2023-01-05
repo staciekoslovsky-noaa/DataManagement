@@ -8,45 +8,31 @@ logo: https://www.fisheries.noaa.gov/themes/custom/noaa_components/images/fisher
 footer: "MML Seminar Series | Data Management Made a Little Less Scary | Stacie Hardy"
 ---
 
-## Goals for Seminar
+## Goals for Seminar {.smaller}
 
-::: columns
-::: {.column width="50%"}
+![](Seminar_MML_202301_DataManagementAccessible_files/images/data_are_plural.jpg){fig-align="center"}
+
 -   Define data management
 
--   Share concepts and examples (and comics)
+-   Share concepts and examples
 
 -   Provide you with take-away actions:
 
-    -   Start small
+    -   Start Small
 
-    -   Happy medium
+    -   Happy Medium
 
-    -   Bring it on!
+    -   Bring It On!
+
+## 2020 NOAA Data Strategy {.smaller}
+
+::: columns
+::: {.column width="25%"}
+![](Seminar_MML_202301_DataManagementAccessible_files/images/noaa_data_strategy.png)
 :::
 
-::: {.column width="50%"}
-![](https://www.oceangliders.org/wp-content/uploads/2017/10/data_management_chart.png)
-:::
-:::
-
-## Overview {.smaller}
-
-Data are our legacy.
-
-The data we collect, manage and analyze today will continue to be available and used by staff in the future. It is, therefore, important to maintain, organize and share our data in a way that will be useful and meaningful to current-us and future-us. This includes:
-
--   Keeping files organized and up-to-date
-
--   Documenting information about the files and the process(es) for creating the files
-
-But, data storage is costly, in terms of space for storing data, space for backing up data, and time for managing, organizing and documenting data, so...
-
-*We want to be mindful in our data management strategies and application*.
-
-## NOAA Data Strategy {.smaller}
-
-From 2020 NOAA Data Strategy: "Data are at the heart of NOAA's \$5 billion per year enterprise. ... NOAA data are a critical strategic asset used to ensure accountability, manage operations, and to maintain and enhance the performance of the economy, public health, and welfare."
+::: {.column width="75%"}
+"Data are at the heart of NOAA's \$5 billion per year enterprise. ... NOAA data are a critical strategic asset used to ensure accountability, manage operations, and to maintain and enhance the performance of the economy, public health, and welfare."
 
 -   **Goal 1**: Align data management leadership roles across the organization.
 
@@ -57,6 +43,18 @@ From 2020 NOAA Data Strategy: "Data are at the heart of NOAA's \$5 billion per y
 -   **Goal 4**: Promote data innovation and quality improvements to facilitate science and support data-driven decision making.
 
 -   **Goal 5**: Engage stakeholders and leverage partnerships to maximize the value of NOAA data to the Nation.
+:::
+:::
+
+## Overview {.smaller}
+
+Data are our legacy.
+
+The data we collect, manage and analyze today will continue to be available and used by staff in the future. It is, therefore, important to maintain, organize and share our data in a way that will be useful and meaningful to current-us and future-us.
+
+But, data storage is costly, in terms of space for storing data, space for backing up data, and time for managing, organizing and documenting data, and so on...
+
+*We want to be mindful in our data management strategies and application*.
 
 ## Ideally... {.smaller}
 
@@ -66,7 +64,7 @@ A well-designed data management system will:
 
 -   Offer easier retrieval of information and reduce time spent searching for files or data;
 
--   Ensure the integrity and continuity of record keeping, despite changes in personnel;
+-   Ensure the integrity and continuity of record keeping, *despite changes in personnel*;
 
 -   Allow for the easy identification and purging of outdated information;
 
@@ -162,9 +160,7 @@ grViz("digraph flowchart {
 
 ![](Seminar_MML_202301_DataManagementAccessible_files/images/planning.jpg){fig-align="center"}
 
-## Plan {.smaller}
-
-**Things to consider:**
+## Plan: Things to Consider {.smaller}
 
 -   What data will be generated? What data need to be gathered from other places (within your program, within MML, from outside sources)?
 
@@ -186,23 +182,45 @@ grViz("digraph flowchart {
 ::: {.column .smaller width="70%"}
 -   Consider how to organize folders (by date, project, species).
 
--   Create folders with a top-down hierarchy.
+    -   Create folders with a top-down hierarchy.
+
+    -   Organize images separately.
+
+    -   Don't store final data only on your laptop!
 
 -   If you're going to do a big reorganization, consider deleting and archiving things first.
 
 -   For program-wide efforts, work together as a team to come up with different ways to store data, test out some mock-ups, and settle on a solution that works best for the group.
 
--   Don't store final data only on your laptop!
-
 -   Establish a system for version control (e.g. file-naming, Git). Not everything needs version control. Delete obsolete versions of files.
-
--   Organize images separately.
 
 -   Maintain whatever system you come up with -- check in, adjust it, and clean it up annually.
 :::
 
 ::: {.column width="30%"}
 ![](https://imgs.xkcd.com/comics/old_files.png)
+:::
+:::
+
+## Plan: Folder Organization: Personal {.smaller}
+
+::: columns
+![](Seminar_MML_202301_DataManagementAccessible_files/images/sample_folder_structure_personal.png){fig-align="center"}
+:::
+
+## Plan: Folder Organization: Program {.smaller}
+
+::: columns
+::: {.column width="33%"}
+![](Seminar_MML_202301_DataManagementAccessible_files/images/sample_folder_network_1.png)
+:::
+
+::: {.column width="33%"}
+![](Seminar_MML_202301_DataManagementAccessible_files/images/sample_folder_network_2.png)
+:::
+
+::: {.column width="33%"}
+![](Seminar_MML_202301_DataManagementAccessible_files/images/sample_folder_network_3.png)
 :::
 :::
 
@@ -213,10 +231,10 @@ grViz("digraph flowchart {
 ![](https://imgs.xkcd.com/comics/documents.png)
 :::
 
-::: {.column width="67%"}
-File names ideally describe the project, file contents, location, and date, and should be unique enough to stand alone as file descriptions.
+::: {.column .smaller width="67%"}
+File names ideally describe the project, file contents, location, and date -- and should be unique enough to stand alone as file descriptions.
 
-File names should be:
+*File names should be*:
 
 -   Human-readable
 
@@ -224,30 +242,23 @@ File names should be:
 
 -   Plays well with default ordering (!)
 
-    -   This may mean different solutions for different projects/reasons.
+    -   This may mean different solutions for different projects/reasons
     -   Order by date, number, name, etc.
-
-Order the pieces of information or elements being used to create the file name in the most logical order based on retrieval methods and generally from most general to most specific.
+    -   Most general to most specific
 :::
 :::
 
 ## Plan: File Naming Conventions {.smaller}
 
--   File names should be unique, simple, and easy to understand.
+-   File names should be unique, simple, SHORT, and readable.
 
--   Use underscores (\_) to represent spaces. Avoid using spaces. This is a best practice as spaces will break hyperlinks in an address string.
+-   Avoid using spaces. Alternative ways to break up file naming without spaces: CamelCase, lowerCamelCase, snake_case. CamelCase_PlusSnakeCase.
 
--   Use only alpha-numeric characters.
+-   Use only alpha-numeric characters. Avoid special characters.
 
-    -   Special characters (e.g.: ? ! / \$ % \# \< \>) are often reserved for use by the operating system.
+-   Use leading zeros with the numbers 0-9 for better sorting.
 
-    -   If you need files to sort at the (very) top of a list, precede with an underscore (\_).
-
--   Keep the file name as short as possible.
-
--   Use leading zeros with the numbers 0-9 to facilitate better sorting.
-
--   Dates should formatted to maintain chronological order (YYYYMMDD).
+-   Dates should formatted to support logical default ordering.
 
 -   Avoid unclear names like last, final2, final revised, etc.
 
@@ -257,7 +268,7 @@ Order the pieces of information or elements being used to create the file name i
 
 -   Plan 1.docx
 
--   Project_DataMgmtPlan_OtherExtraneousInformationToMakeThisReallyLong.docx
+-   Project_DataMgmtPlan\_*longDetails*.docx
 
 -   01JAN2023 or 1-1-2023
 :::
@@ -273,9 +284,31 @@ Order the pieces of information or elements being used to create the file name i
 :::
 :::
 
-## Plan: Google Drive
+## Plan: Date/Time Formats {.smaller}
 
-Oof, Google Drive.
+::: columns
+::: {.column width="40%"}
+![](https://imgs.xkcd.com/comics/iso_8601.png){width="350"}
+:::
+
+::: {.column width="60%"}
+-   In data and in folder/file names, dates should formatted to meet ISO 8601 standards
+
+    -   YYYY-MM-DD
+
+    -   YYYYMMDD
+
+    -   YYYY-MM
+
+    -   YYYY-Www (e.g. 2023-W03) if you use week data
+
+    -   Thh:mm:ss.sss (using the 24-hour clock system)
+
+-   We work across time zones, which makes data collection and management particularly complicated. Consider standardizing date/time information to GMT for standardization.
+:::
+:::
+
+## Plan: Google Drive...oof {.smaller}
 
 There are two camps here (and I've highlighted some considerations for each):
 
@@ -295,92 +328,171 @@ There are two camps here (and I've highlighted some considerations for each):
 
 For larger groups (at the program- or project-scale), personally, I'd recommend organizing a centralized folder system and sharing within that, but either way, it's a good conversation to have.
 
-## Plan: Reproducibility
+## Plan: Reproducibility {.smaller}
 
--   Think about how you're going to...
-    -   Document your processing
+::: columns
+::: {.column width="50%"}
+Think about how you're going to...
 
-        -   Code is a really nice way to do this.
+-   Document your processing
 
-        -   If that's scary or not in your toolkit, writing down the steps in a (shared) document is also totally okay.
+    -   Code is a really nice way to do this. It also saves you time later, if you have to redo anything.
 
-    -   Archive versions of the data used for analyses, if they cannot be otherwise recreated.
+    -   If that's scary or not in your toolkit, writing down the (detailed) steps in a (shared) document is also totally okay.
 
-    -   PARR
+-   Archive versions of the data used for analyses, if they cannot be otherwise recreated.
+
+-   Come up with a plan for what you need to do with your data to meet PARR requirements.
+:::
+
+::: {.column width="50%"}
+![](https://imgs.xkcd.com/comics/is_it_worth_the_time.png)
+:::
+:::
 
 ## Plan: Take-away Actions {.smaller}
 
 ::: columns
-::: {.column width="33%"}
-**Start small**
+::: {.column width="70%"}
+**Start Small**
 
--   That was a lot of information.
+That was a lot of information. Pick one thing that you think would be most beneficial for you to try. Build incrementally. Don't try to do everything all at once or go back through all your older work. Start small with something new(ish).
 
--   Pick one thing that you think would be most beneficial for you to try. Build incrementally.
+**Happy Medium**
+
+Work with other members of your program/project to start to bring more of these measures into your work.
+
+**Bring It On!**
+
+Develop a comprehensive data management plan for your project and/or program. Use common planning and structures across program projects. Clean up and reorganize your own/project/program file organization.
 :::
 
-::: {.column width="33%"}
-**Happy medium**
-
--   Work with other members of your program/project to start to bring more of these measures into your work.
-:::
-
-::: {.column width="33%"}
-**Bring it on!**
-
--   Develop a comprehensive data management plan for your project and/or program
-
--   Use common planning and structures across program projects
+::: {.column width="30%"}
+![](Seminar_MML_202301_DataManagementAccessible_files/images/to_do_list.jpg)
 :::
 :::
 
-## Collect
+## Collect {.smaller}
+
+How you collect data heavily influences down-stream data processing. Set yourself up for success from the beginning!
+
+-   Use consistent methods for collecting data.
+
+    -   Set up a template for data storage.
+
+    -   Use datasheets or cloud-based data recording systems that mirror how data will be stored later.
+
+    -   Use the same format year-to-year, changing as little as possible.
+
+-   Use consistent data organization:
+
+    -   Wide format (spreadsheet format): each row represents a complete entry
+
+    -   Long format (database format): one column defines the parameter and one column stores the value of the parameter
+
+-   Atomize data (make sure there is only one piece of information in each row/column entry). Don't store multiple bits of information in the same field.
+
+-   Keep your raw data raw. Preserve it, imperfections and all.
+
+    -   Use a separate process to clean the data, ideally scripted to make the process reproducible (more to come on this in the Assure section)
+
+    -   Work off the cleaned version of the data.
+
+-   Import raw or manually enter data into a database!
+
+## Collect: Data Collection Template
+
+::: columns
+::: {.column width="50%"}
+![](Seminar_MML_202301_DataManagementAccessible_files/images/coastal_data_1.png)
+:::
+
+::: {.column width="50%"}
+![](Seminar_MML_202301_DataManagementAccessible_files/images/coastal_data_2.png)
+:::
+:::
+
+## Collect: Wide vs Long Formats
+
+(insert images of before and after capture data)
+
+## Collect: Database!
 
 ## Collect: Take-away Actions {.smaller}
 
 ::: columns
-::: {.column width="33%"}
-**Start small**
+::: {.column width="70%"}
+**Start Small**:
 
--   
+**Happy Medium**:
+
+**Bring It On!**:
 :::
 
-::: {.column width="33%"}
-**Happy medium**
-
--   
-:::
-
-::: {.column width="33%"}
-**Bring it on!**
-
--   
+::: {.column width="30%"}
+(insert to do list image)
 :::
 :::
 
 ## Assure
 
-![](https://dilbert.com/strip/2014-05-07)
+::: columns
+::: {.column width="70%"}
+This is such an easy step to overlook. To me, it is arguably the most important step. But doing it well can take time...
+
+Things to look at in your data:
+
+-   Consistency in values throughout data collection
+
+-   Reasonable min-max, average, range values for each field (query-based or graphically)
+
+-   Missing data
+
+-   Large gaps in data (does this introduce spatial or temporal bias?)
+
+-   Double-checking data that were entered by hand
+
+-   Logical checks
+
+-   Assign quality flags to records to "remove" bad records
+
+Skipping this step can result in catastrophic interpretation of results...
+:::
+
+::: {.column width="30%"}
+![](https://imgs.xkcd.com/comics/assigning_numbers.png)
+:::
+:::
+
+## Assure: Example #1
+
+::: columns
+::: {.column width="50%"}
+(body condition field report pg1)
+:::
+
+::: {.column width="50%"}
+(body condition field report pg2)
+:::
+:::
+
+## Assure: Example #2
+
+(image of database QA/QC queries)
 
 ## Assure: Take-away Actions {.smaller}
 
 ::: columns
-::: {.column width="33%"}
-**Start small**
+::: {.column width="70%"}
+**Start Small**:
 
--   
+**Happy Medium**:
+
+**Bring It On!**:
 :::
 
-::: {.column width="33%"}
-**Happy medium**
-
--   
-:::
-
-::: {.column width="33%"}
-**Bring it on!**
-
--   
+::: {.column width="30%"}
+(insert to do list image)
 :::
 :::
 
@@ -388,6 +500,17 @@ For larger groups (at the program- or project-scale), personally, I'd recommend 
 
 ::: columns
 ::: {.column width="50%"}
+This is another step that takes a lot of time to do well, but your future self will be really appreciative of your current self doing a thorough job.
+
+-   Describe the data organization
+
+-   Describe who did what and the appropriate contact information
+
+-   Describe the scientific context
+
+-   Describe the data and parameters
+
+This is doesn't just have to be done in InPort. And a reminder, any dataset metadata records created in InPort are required to have their data available online within one year of when the metadata record was created. This does not apply to project-level metadata records (fyi).
 :::
 
 ::: {.column width="50%"}
@@ -395,25 +518,23 @@ For larger groups (at the program- or project-scale), personally, I'd recommend 
 :::
 :::
 
+## Describe: InPort Example
+
+(new PEP metadata layout)
+
 ## Describe: Take-away Actions {.smaller}
 
 ::: columns
-::: {.column width="33%"}
-**Start small**
+::: {.column width="70%"}
+**Start Small**:
 
--   
+**Happy Medium**:
+
+**Bring It On!**:
 :::
 
-::: {.column width="33%"}
-**Happy medium**
-
--   
-:::
-
-::: {.column width="33%"}
-**Bring it on!**
-
--   
+::: {.column width="30%"}
+(insert to do list image)
 :::
 :::
 
@@ -424,22 +545,16 @@ For larger groups (at the program- or project-scale), personally, I'd recommend 
 ## Preserve: Take-away Actions {.smaller}
 
 ::: columns
-::: {.column width="33%"}
-**Start small**
+::: {.column width="70%"}
+**Start Small**:
 
--   
+**Happy Medium**:
+
+**Bring It On!**:
 :::
 
-::: {.column width="33%"}
-**Happy medium**
-
--   
-:::
-
-::: {.column width="33%"}
-**Bring it on!**
-
--   
+::: {.column width="30%"}
+(insert to do list image)
 :::
 :::
 
@@ -448,46 +563,36 @@ For larger groups (at the program- or project-scale), personally, I'd recommend 
 ## Discover: Take-away Actions {.smaller}
 
 ::: columns
-::: {.column width="33%"}
-**Start small**
+::: {.column width="70%"}
+**Start Small**:
 
--   
+**Happy Medium**:
+
+**Bring It On!**:
 :::
 
-::: {.column width="33%"}
-**Happy medium**
-
--   
-:::
-
-::: {.column width="33%"}
-**Bring it on!**
-
--   
+::: {.column width="30%"}
+(insert to do list image)
 :::
 :::
 
 ## Integrate and Analyze
 
+![](https://imgs.xkcd.com/comics/data_point.png)
+
 ## Integrate and Analyze: Take-away Actions {.smaller}
 
 ::: columns
-::: {.column width="33%"}
-**Start small**
+::: {.column width="70%"}
+**Start Small**:
 
--   
+**Happy Medium**:
+
+**Bring It On!**:
 :::
 
-::: {.column width="33%"}
-**Happy medium**
-
--   
-:::
-
-::: {.column width="33%"}
-**Bring it on!**
-
--   
+::: {.column width="30%"}
+(insert to do list image)
 :::
 :::
 
@@ -508,7 +613,7 @@ Make data management practices more diverse, equitable, inclusive, and accessibl
     -   Think about data management as a complementary process to the research
     -   Work with one another -- all on the same team of trying to move research efforts forward
 
--   Recognize this work is often un(der)funded and un(der)staffed...and sometimes un(der)recognized
+-   Recognize this work is often un(der)funded and un(der)staffed...
 
 -   Make the information you're presenting accessible (e.g., alt text, colorblindness)
 
@@ -551,6 +656,8 @@ For life and data management:
 ## Resources
 
 -   PEP Data Management Plan
+-   [Biological Observation Data Standardization - A Primer for Data Managers](https://esip.figshare.com/articles/online_resource/Biological_Observation_Data_Standardization_-_A_Primer_for_Data_Managers/16806712/2)
 -   [DataOne Primer on Data Management](https://repository.oceanbestpractices.org/bitstream/handle/11329/502/DataONE_BP_Primer_020212.pdf)
 -   [Harvard Biomedical Data Lifecycle](https://datamanagement.hms.harvard.edu/plan-design/biomedical-data-lifecycle)
 -   [NOAA Data Strategy: Maximizing the Value of NOAA Data](https://sciencecouncil.noaa.gov/Portals/0/2020%20Data%20Strategy.pdf?ver=2020-09-17-150024-997)
+-   [ISO 8601 Standards for date/time](https://en.wikipedia.org/wiki/ISO_8601#Dates)
