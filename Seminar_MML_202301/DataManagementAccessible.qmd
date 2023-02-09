@@ -1,11 +1,11 @@
 ---
 title: "Data Management Made a Little Less Scary"
 subtitle: "Strategies to Meet You Where You Are"
-author: "Stacie Hardy, MML/PEP"
+author: "Stacie Koslovsky (Hardy), MML/PEP"
 date: '2023-01-13'
 format: revealjs
 logo: https://www.fisheries.noaa.gov/themes/custom/noaa_components/images/fisheries_header_logo_jul2019.png
-footer: "MML Seminar Series | Data Management Made a Little Less Scary | Stacie Hardy"
+footer: "MML Seminar Series | Data Management Made a Little Less Scary | Stacie Koslovsky (Hardy)"
 ---
 
 ## Goals for Seminar {.smaller}
@@ -426,6 +426,8 @@ How you collect data heavily influences down-stream data processing. Set yoursel
 
     -   Long format (database format): one column defines the parameter and one column stores the value of the parameter; makes data easier to migrate to a database later!
 
+    -   Color-coding in spreadsheets is *great* for visualization...but it's not a substitute for organizing your data properly.
+
 ## Collect {.smaller}
 
 How you collect data heavily influences down-stream data processing. Set yourself up for success from the beginning!
@@ -483,6 +485,16 @@ How you collect data heavily influences down-stream data processing. Set yoursel
 ![](DataManagementAccessible_files/images/sample_results_long.png)
 :::
 :::
+
+## Collect: Measurements + Units {.smaller}
+
+-   If you're storing the data in a wide format (each measurement type gets it's own field)...
+
+    -   AND all the measurements are in the same unit, store the unit at the end of the field name (e.g. length_m).
+
+    -   AND the measurements are collected in different units, you could easily get yourself in trouble. Either (preferably) convert to all the same units and name the field accordingly (with units at the end) OR create another field in which you store the associated units.
+
+-   If you're storing the data in a long format (all measurements in the same field, with another field indicating the measurement type), either create a measurement unit field OR (in a database) related the measurements to a measurement type lookup table and store the unit information there.
 
 ## Collect: Archive/Storage {.smaller}
 
@@ -613,6 +625,8 @@ Review field data to ensure there were no issues with initial data collection...
 :::
 
 ## Assure: Example #2 (in database) {.smaller}
+
+In a database, tables are where your data are stored. Queries are layers that exist on top of that table that summarize, filter. or order your data...they do *not* make another copy of the data. When your underlying data change, the data in the query also change automatically.
 
 Using queries to standardize extraction and to complete quality checks...
 
