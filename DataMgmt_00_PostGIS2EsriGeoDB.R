@@ -488,6 +488,7 @@ rm(summ_count_by_image_iliamna)
 
 # tbl_effort
 tbl_effort <- sf::st_read(con, query = "SELECT * FROM surv_pv_cst.tbl_effort WHERE geom IS NOT NULL") %>%
+  mutate(survey_date = as.POSIXct(survey_date, format = "%F")) %>%
   sf::as_Spatial()
 arc.write(file.path(fgdb_path, "surv_pv_cst\\tbl_effort"), data = tbl_effort, overwrite = TRUE, validate = TRUE)
 rm(tbl_effort)
