@@ -24,8 +24,8 @@ install_pkg("reticulate")
 
 
 # Load Ersi license 
-#use_python("C:/Python27/ArcGIS10.8/python.exe")
-#ARCPY <- import("arcpy")
+# use_python("C:/PYTHON27/ArcGIS10.8/python.exe")
+# ARCPY <- import("arcpy")
 arc.check_product()
 
 # Connect to DB -------------------------------------------------
