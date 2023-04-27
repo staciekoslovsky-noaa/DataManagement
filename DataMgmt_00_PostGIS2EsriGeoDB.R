@@ -1,5 +1,7 @@
 # Data Management: Maintain Esri file geoDB for viewing PEP spatial data
 
+##### REQUIRES 32-bit R #####
+
 # Variables ------------------------------------------------------
 fgdb_path <- "O:\\Data\\_PEP_SpatialData4Esri.gdb"
 
@@ -456,11 +458,17 @@ geo_priorities_202108 <- sf::st_read(con, query = "SELECT * FROM surv_pv_cst.geo
 arc.write(file.path(fgdb_path, "surv_pv_cst\\geo_priorities_202108"), data = geo_priorities_202108, overwrite = TRUE, validate = TRUE)
 rm(geo_priorities_202108)
 
-# geo_priorities_202108
-geo_priorities_202108 <- sf::st_read(con, query = "SELECT * FROM surv_pv_cst.geo_priorities_202208") %>%
+# geo_priorities_202208
+geo_priorities_202208 <- sf::st_read(con, query = "SELECT * FROM surv_pv_cst.geo_priorities_202208") %>%
   sf::as_Spatial()
-arc.write(file.path(fgdb_path, "surv_pv_cst\\geo_priorities_202108"), data = geo_priorities_202208, overwrite = TRUE, validate = TRUE)
+arc.write(file.path(fgdb_path, "surv_pv_cst\\geo_priorities_202208"), data = geo_priorities_202208, overwrite = TRUE, validate = TRUE)
 rm(geo_priorities_202208)
+
+# geo_priorities_202305
+geo_priorities_202305 <- sf::st_read(con, query = "SELECT * FROM surv_pv_cst.geo_priorities_202305") %>%
+  sf::as_Spatial()
+arc.write(file.path(fgdb_path, "surv_pv_cst\\geo_priorities_202305"), data = geo_priorities_202305, overwrite = TRUE, validate = TRUE)
+rm(geo_priorities_202305)
 
 # geo_track_lines
 geo_track_lines <- sf::st_read(con, query = "SELECT * FROM surv_pv_cst.geo_track_lines") %>%
