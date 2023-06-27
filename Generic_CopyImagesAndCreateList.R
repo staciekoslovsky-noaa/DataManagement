@@ -1,5 +1,4 @@
 # Create starting image list for processing data to DB and copy images to external HD
-# S. Hardy, 19FEB2020
 
 # Create functions -----------------------------------------------
 # Function to install packages needed
@@ -13,31 +12,22 @@ install_pkg <- function(x)
 }
 
 # Install libraries ----------------------------------------------
-install_pkg("RPostgres")
+install_pkg("RPostgreSQL")
 
 # Run code -------------------------------------------------------
-con <- RPostgres::dbConnect(Postgres(), 
+con <- RPostgreSQL::dbConnect(PostgreSQL(), 
                               dbname = Sys.getenv("pep_db"), 
                               host = Sys.getenv("pep_ip"), 
-                              user = Sys.getenv("pep_user"), 
-                              port = Sys.getenv("pep_port"),
-                              rstudioapi::askForPassword(paste("Enter your DB password for user account: ", Sys.getenv("pep_user"), sep = "")))
-dat <- RPostgres::dbGetQuery(con, "select distinct image_name
-                                      from surv_polar_bear.tbl_images
-                                      inner join surv_polar_bear.geo_images_meta
-                                      using (flight, camera_view, dt)
-                                      where flight = \'fl07\'
-                                      and camera_view = \'L\'
-                                      and ins_roll < 10
-                                      and ins_roll > -10
-                                      and ins_altitude > 250
-                                      and ins_altitude < 400
-                                      and type = \'IR Image\'")
+                              user = Sys.getenv("pep_admin"),
+                              password = Sys.getenv("admin_pw"))
 
-wd <- "//akc0ss-n086/NMML_Polar_Imagery/Techniques_Test/KAMERA_InFlightSystem_2019/polar_bear_2019/fl07/LEFT"
-setwd(wd)
+data <- RPostgreSQL::dbGetQuery(con, "SELECT * FROM surv_test_kotz.annotations_pup_training_ir")
+images <- RPostgreSQL::dbGetQuery(con, "SELECT * FROM surv_test_kotz.annotations_pup_training_ir_images")
 
-file.copy(dat$image_name, "E:/fl07/LEFT")
+write.table(data, "D:/seal_pups/Survey_Kotz/SurvKotz_seal_pups_training_ir_annotations.csv", row.names = FALSE, col.names = FALSE, quote = FALSE, sep = ',')
+write.table(images$image_name, "D:/seal_pups/Survey_Kotz/SurvKotz_seal_pups_training_ir_images.txt", row.names = FALSE, col.names = FALSE, quote = FALSE)
 
-write.table(dat$image_name, "E:/fl07/LEFT/image_list_ir.txt", row.names = FALSE, col.names = FALSE, quote = FALSE)
+file.copy(paste0(images$image_dir, "/", images$image_name), "D:/seal_pups/Survey_Kotz/images")
+
+dbDisconnect(con)
 
