@@ -327,6 +327,22 @@ geo_images_meta <- sf::st_read(con, query = "SELECT * FROM surv_jobss.geo_images
 arc.write(file.path(fgdb_path, "surv_jobss\\geo_images_meta_j"), data = geo_images_meta, overwrite = TRUE, validate = TRUE)
 rm(geo_images_meta)
 
+# geo_track_by_effort
+geo_track_by_effort <- sf::st_read(con, query = "SELECT * FROM surv_jobss.geo_track_by_effort") %>%
+  mutate(num_pts = mapview::npts(., by_feature = TRUE)) %>%
+  filter(num_pts > 1) %>%
+  select(-num_pts) %>%
+  sf::as_Spatial()
+arc.write(file.path(fgdb_path, "surv_jobss\\geo_track_by_effort"), data = geo_track_by_effort, overwrite = TRUE, validate = TRUE)
+rm(geo_track_by_effort)
+
+# geo_track_by_flight
+geo_track_by_flight <- sf::st_read(con, query = "SELECT * FROM surv_jobss.geo_track_by_flight") %>%
+  sf::as_Spatial()
+arc.write(file.path(fgdb_path, "surv_jobss\\geo_track_by_flight"), data = geo_track_by_flight, overwrite = TRUE, validate = TRUE)
+rm(geo_track_by_flight)
+
+
 
 
 
