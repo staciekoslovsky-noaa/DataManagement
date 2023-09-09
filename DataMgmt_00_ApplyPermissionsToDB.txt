@@ -5,6 +5,7 @@ GRANT CONNECT ON DATABASE pep to pep_user;
 GRANT CONNECT ON DATABASE pep to aep_user;
 
 
+
 --ACOUSTICS
 ----Remove all existing permissions
 REVOKE ALL ON SCHEMA acoustics FROM pep_admin;
@@ -406,15 +407,18 @@ ALTER DEFAULT PRIVILEGES IN SCHEMA surv_test_kotz GRANT SELECT ON TABLES TO pep_
 ----Remove all existing permissions
 REVOKE ALL ON SCHEMA telem FROM pep_admin;
 REVOKE ALL ON SCHEMA telem FROM pep_entry_capture;
+REVOKE ALL ON SCHEMA telem FROM pep_manage_telem;
 REVOKE ALL ON SCHEMA telem FROM pep_user;
 
 ----Grant access to user groups
 GRANT USAGE ON SCHEMA telem TO pep_admin; 
 GRANT USAGE ON SCHEMA telem TO pep_entry_capture;
+GRANT USAGE ON SCHEMA telem TO pep_manage_telem;
 GRANT USAGE ON SCHEMA telem TO pep_user; 
 
 ----Grant table permissions to user groups
 GRANT ALL ON ALL TABLES IN SCHEMA telem TO pep_admin;
+GRANT ALL ON ALL TABLES IN SCHEMA telem TO pep_manage_telem;
 GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA telem TO pep_admin;
 GRANT SELECT, UPDATE, INSERT, DELETE ON ALL TABLES IN SCHEMA telem TO pep_entry_capture;
 GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA telem TO pep_entry_capture;
@@ -422,10 +426,19 @@ GRANT SELECT ON ALL TABLES IN SCHEMA telem TO pep_user;
 
 ----Set default table permissions to user groups
 ALTER DEFAULT PRIVILEGES IN SCHEMA telem GRANT ALL ON TABLES TO pep_admin;
+ALTER DEFAULT PRIVILEGES IN SCHEMA telem GRANT ALL ON TABLES TO pep_manage_telem;
 ALTER DEFAULT PRIVILEGES IN SCHEMA telem GRANT SELECT, UPDATE, INSERT, DELETE ON TABLES TO pep_entry_capture;
 ALTER DEFAULT PRIVILEGES IN SCHEMA telem GRANT USAGE, SELECT ON SEQUENCES TO pep_entry_capture;
 ALTER DEFAULT PRIVILEGES IN SCHEMA telem GRANT SELECT ON TABLES TO pep_user;
 
+ALTER TABLE IF EXISTS telem.res_iceseal_haulout OWNER TO pep_manage_telem;
+ALTER TABLE IF EXISTS telem.res_iceseal_haulout_cov OWNER TO pep_manage_telem;
+ALTER TABLE IF EXISTS telem.res_iceseal_haulout_cov_acpcp OWNER TO pep_manage_telem;
+ALTER TABLE IF EXISTS telem.res_iceseal_haulout_cov_air2m OWNER TO pep_manage_telem;
+ALTER TABLE IF EXISTS telem.res_iceseal_haulout_cov_airsfc OWNER TO pep_manage_telem;
+ALTER TABLE IF EXISTS telem.res_iceseal_haulout_cov_prmsl OWNER TO pep_manage_telem;
+ALTER TABLE IF EXISTS telem.res_iceseal_haulout_cov_uwnd OWNER TO pep_manage_telem;
+ALTER TABLE IF EXISTS telem.res_iceseal_haulout_cov_vwnd OWNER TO pep_manage_telem;
 
 
 --USPAI:
