@@ -20,8 +20,8 @@ install_pkg("tidyverse")
 install_pkg("RPostgreSQL")
 install_pkg("sf")
 install_pkg("sp")
-# install.packages("arcgisbinding", repos="https://r.esri.com", type="win.binary")
-install_pkg("arcgisbinding")
+install.packages("arcgisbinding", repos="https://r.esri.com", type="win.binary")
+#install_pkg("arcgisbinding")
 install_pkg("reticulate")
 
 
@@ -58,18 +58,6 @@ geo_analysis_grid <- sf::st_read(con, query = "SELECT * FROM base.geo_analysis_g
 arc.write(file.path(fgdb_path, "base\\geo_analysis_grid"), data = geo_analysis_grid, overwrite = TRUE, validate = TRUE)
 rm(geo_analysis_grid)
 
-# geo_analysis_grid_ak
-geo_analysis_grid_ak <- sf::st_read(con, query = "SELECT * FROM base.geo_analysis_grid_ak") %>%
-  sf::as_Spatial()
-arc.write(file.path(fgdb_path, "base\\geo_analysis_grid_ak"), data = geo_analysis_grid_ak, overwrite = TRUE, validate = TRUE)
-rm(geo_analysis_grid_ak)
-
-# geo_analysis_grid_ak_centroid
-geo_analysis_grid_ak_centroid <- sf::st_read(con, query = "SELECT * FROM base.geo_analysis_grid_ak_centroid") %>%
-  sf::as_Spatial()
-arc.write(file.path(fgdb_path, "base\\geo_analysis_grid_ak_centroid"), data = geo_analysis_grid_ak_centroid, overwrite = TRUE, validate = TRUE)
-rm(geo_analysis_grid_ak_centroid)
-
 # geo_analysis_grid_centroid
 geo_analysis_grid_centroid <- sf::st_read(con, query = "SELECT * FROM base.geo_analysis_grid_centroid") %>%
   sf::as_Spatial()
@@ -81,6 +69,18 @@ geo_analysis_grid_no_polarbear <- sf::st_read(con, query = "SELECT * FROM base.g
   sf::as_Spatial()
 arc.write(file.path(fgdb_path, "base\\geo_analysis_grid_no_polarbear"), data = geo_analysis_grid_no_polarbear, overwrite = TRUE, validate = TRUE)
 rm(geo_analysis_grid_no_polarbear)
+
+# geo_maritime_boundaries_ak
+geo_maritime_boundaries_ak <- sf::st_read(con, query = "SELECT * FROM base.geo_maritime_boundaries_ak") %>%
+  sf::as_Spatial()
+arc.write(file.path(fgdb_path, "base\\geo_maritime_boundaries_ak"), data = geo_maritime_boundaries_ak, overwrite = TRUE, validate = TRUE)
+rm(geo_maritime_boundaries_ak)
+
+# geo_maritime_boundaries_ak_eez
+geo_maritime_boundaries_ak_eez <- sf::st_read(con, query = "SELECT * FROM base.geo_maritime_boundaries_ak_eez") %>%
+  sf::as_Spatial()
+arc.write(file.path(fgdb_path, "base\\geo_maritime_boundaries_ak_eez"), data = geo_maritime_boundaries_ak_eez, overwrite = TRUE, validate = TRUE)
+rm(geo_maritime_boundaries_ak_eez)
 
 
 
