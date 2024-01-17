@@ -20,8 +20,8 @@ install_pkg("tidyverse")
 install_pkg("RPostgreSQL")
 install_pkg("sf")
 install_pkg("sp")
-install.packages("arcgisbinding", repos="https://r.esri.com", type="win.binary")
-#install_pkg("arcgisbinding")
+#install.packages("arcgisbinding", repos="https://r.esri.com", type="win.binary")
+install_pkg("arcgisbinding")
 install_pkg("reticulate")
 
 
