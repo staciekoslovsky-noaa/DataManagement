@@ -24,6 +24,7 @@ files <- RPostgreSQL::dbGetQuery(con, "select distinct filt_image_dir, filt_imag
                                  on thermal_dt = filt_dt
                                  where filt_image LIKE \'%THERM-8-BIT%\'
                                  and species_id LIKE \'%Seal%\'")
+
 #color <- list.files("D://01/CENT", full.names = TRUE, recursive = TRUE, pattern = "*rgb.tif")
 #ir <- list.files("D://01/CENT", full.names = TRUE, recursive = TRUE, pattern = "*ir.tif")
 
