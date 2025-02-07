@@ -147,6 +147,21 @@ ALTER DEFAULT PRIVILEGES IN SCHEMA capture GRANT SELECT ON TABLES TO pep_user;
 
 
 
+--DATABASE_META:
+----Remove all existing permissions
+REVOKE ALL ON SCHEMA database_meta FROM pep_admin;
+REVOKE ALL ON SCHEMA database_meta FROM pep_user;
+
+----Grant access to user groups
+GRANT ALL ON SCHEMA database_meta TO pep_admin;
+GRANT SELECT, UPDATE, INSERT, DELETE ON ALL TABLES IN SCHEMA capture TO pep_user;
+
+----Set default table permissions to user groups
+ALTER DEFAULT PRIVILEGES IN SCHEMA capture GRANT ALL ON TABLES TO pep_admin;
+ALTER DEFAULT PRIVILEGES IN SCHEMA capture GRANT SELECT, UPDATE, INSERT, DELETE ON TABLES TO pep_user;
+
+
+
 --ENVIRON:
 ----Remove all existing permissions
 REVOKE ALL ON SCHEMA environ FROM pep_admin;
