@@ -12,13 +12,13 @@ googledrive::drive_auth()
 
 
 # --- 1. Configuration ---
-fromLAN            <- "\\\\akc0ss-n086\\NMML_Polar\\Data\\" 
-fromFolder         <- "GIS_External"
-toShareDrive       <- "NMFS MML PEP Data"
-toFolder           <- "GIS_External"
+fromLAN            <- "\\\\akc0ss-n086\\NMML_Polar\\" 
+fromFolder         <- "Legacy"
+toShareDrive       <- "NMFS MML PEP Legacy"
+toFolder           <- "N/A"
 
-include_top_folder <- TRUE 
-manifest_file      <- "filesFrom_Polar_Data_GIS_External.csv"
+include_top_folder <- FALSE 
+manifest_file      <- "filesFrom_Polar_Legacy.csv"
 save_interval      <- 5 
 
 # Helper function to strip single quotes
