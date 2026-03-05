@@ -3,7 +3,7 @@
 ##### REQUIRES 32-bit R #####
 
 # Variables ------------------------------------------------------
-fgdb_path <- "G:\\Data\\_PEP_SpatialData4Esri.gdb"
+fgdb_path <- "G:\\_PEP_SpatialData4Esri.gdb"
 
 # Create functions -----------------------------------------------
 # Function to install packages needed
