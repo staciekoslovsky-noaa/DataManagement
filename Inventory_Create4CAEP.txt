@@ -1,0 +1,169 @@
+--Create inventory_caep schema
+
+CREATE SCHEMA IF NOT EXISTS inventory_caep
+    AUTHORIZATION sa;
+
+GRANT USAGE ON SCHEMA inventory_caep TO pep_admin;
+GRANT USAGE ON SCHEMA inventory_caep TO caep_entry_inventory;
+
+GRANT ALL ON SCHEMA inventory_caep TO sa;
+
+ALTER DEFAULT PRIVILEGES FOR ROLE sa IN SCHEMA inventory_caep
+GRANT ALL ON TABLES TO pep_admin;
+
+ALTER DEFAULT PRIVILEGES FOR ROLE sa IN SCHEMA inventory_caep
+GRANT INSERT, SELECT, UPDATE, DELETE ON TABLES TO caep_entry_inventory;
+
+ALTER DEFAULT PRIVILEGES FOR ROLE sa IN SCHEMA inventory_caep
+GRANT SELECT, USAGE ON SEQUENCES TO caep_entry_inventory;
+
+
+
+
+-- Create look up tables
+
+-- Table: inventory_caep.lku_action
+CREATE TABLE IF NOT EXISTS inventory_caep.lku_action
+(
+    action_lku character varying(10) COLLATE pg_catalog."default" NOT NULL,
+    action character varying(50) COLLATE pg_catalog."default",
+    CONSTRAINT lku_action_pkey PRIMARY KEY (action_lku)
+);
+
+ALTER TABLE IF EXISTS inventory_caep.lku_action 
+	OWNER to sa;
+GRANT ALL ON TABLE inventory_caep.lku_action TO pep_admin;
+GRANT UPDATE, DELETE, INSERT, SELECT ON TABLE inventory_caep.lku_action TO caep_entry_inventory;
+
+
+-- Table: inventory_caep.lku_category
+CREATE TABLE IF NOT EXISTS inventory_caep.lku_category
+(
+    category_lku character varying(10) COLLATE pg_catalog."default" NOT NULL,
+    category character varying(50) COLLATE pg_catalog."default",
+    CONSTRAINT lku_category_pkey PRIMARY KEY (category_lku)
+);
+
+ALTER TABLE IF EXISTS inventory_caep.lku_category 
+	OWNER to sa;
+GRANT ALL ON TABLE inventory_caep.lku_category TO pep_admin;
+GRANT UPDATE, DELETE, INSERT, SELECT ON TABLE inventory_caep.lku_category TO caep_entry_inventory;
+
+
+-- Table: inventory_caep.lku_subcategory
+CREATE TABLE IF NOT EXISTS inventory_caep.lku_subcategory
+(
+    subcategory_lku character varying(10) COLLATE pg_catalog."default" NOT NULL,
+    subcategory character varying(50) COLLATE pg_catalog."default",
+    CONSTRAINT lku_subcategory_pkey PRIMARY KEY (subcategory_lku)
+);
+
+ALTER TABLE IF EXISTS inventory_caep.lku_subcategory
+    OWNER to sa;
+GRANT ALL ON TABLE inventory_caep.lku_subcategory TO pep_admin;
+GRANT UPDATE, DELETE, INSERT, SELECT ON TABLE inventory_caep.lku_subcategory TO caep_entry_inventory;
+
+
+
+
+-- Create tables
+
+-- Table: inventory_caep.tbl_item
+CREATE SEQUENCE inventory_caep.tbl_item_id_seq
+    INCREMENT 1
+    START 1;	
+	
+CREATE TABLE IF NOT EXISTS inventory_caep.tbl_item
+(
+    id integer NOT NULL DEFAULT nextval('inventory_caep.tbl_item_id_seq'::regclass),
+    item character varying(150) COLLATE pg_catalog."default",
+    storage_location character varying(150) COLLATE pg_catalog."default",
+    storage_container character varying(150) COLLATE pg_catalog."default",
+    category_lku character varying(10) COLLATE pg_catalog."default",
+    subcategory_lku character varying(10) COLLATE pg_catalog."default",
+    in_sunflower character varying(50) COLLATE pg_catalog."default",
+    cd_number character varying(50) COLLATE pg_catalog."default",
+    serial_number character varying(50) COLLATE pg_catalog."default",
+    item_comments character varying(300) COLLATE pg_catalog."default",
+    hull_number character varying(50) COLLATE pg_catalog."default",
+    sbp_status character varying(10) COLLATE pg_catalog."default",
+    purchase_date date,
+    last_inspected date,
+    last_serviced date,
+    associated_images character varying(250)[] COLLATE pg_catalog."default",
+    CONSTRAINT tbl_item_pkey PRIMARY KEY (id)
+);
+
+ALTER TABLE IF EXISTS inventory_caep.tbl_item
+    OWNER to sa;
+GRANT ALL ON TABLE inventory_caep.tbl_item TO pep_admin;
+GRANT UPDATE, DELETE, INSERT, SELECT ON TABLE inventory_caep.tbl_item TO caep_entry_inventory;
+
+
+-- Table: inventory_caep.tbl_item_inv
+CREATE SEQUENCE inventory_caep.tbl_item_inv_id_seq
+    INCREMENT 1
+    START 1;	
+	
+CREATE TABLE IF NOT EXISTS inventory_caep.tbl_item_inv
+(
+    id integer NOT NULL DEFAULT nextval('inventory_caep.tbl_item_inv_id_seq'::regclass),
+    item_id integer,
+    number_items integer,
+    action_date date,
+    action_lku character varying(10) COLLATE pg_catalog."default",
+    reason character varying(150) COLLATE pg_catalog."default",
+    inv_comments character varying(250) COLLATE pg_catalog."default",
+    proj_packlist_id integer,
+    CONSTRAINT tbl_item_inv_pkey PRIMARY KEY (id)
+);
+
+ALTER TABLE IF EXISTS inventory_caep.tbl_item_inv
+    OWNER to sa;
+GRANT ALL ON TABLE inventory_caep.tbl_item_inv TO pep_admin;
+GRANT UPDATE, DELETE, INSERT, SELECT ON TABLE inventory_caep.tbl_item_inv TO caep_entry_inventory;
+
+
+
+-- Table: inventory_caep.tbl_project
+CREATE SEQUENCE inventory_caep.tbl_project_id_seq
+    INCREMENT 1
+    START 1;	
+
+CREATE TABLE IF NOT EXISTS inventory_caep.tbl_project
+(
+    id integer NOT NULL DEFAULT nextval('inventory_caep.tbl_project_id_seq'::regclass),
+    project character varying(100) COLLATE pg_catalog."default",
+    CONSTRAINT tbl_project_pkey PRIMARY KEY (id)
+);
+
+ALTER TABLE IF EXISTS inventory_caep.tbl_project
+    OWNER to sa;
+GRANT ALL ON TABLE inventory_caep.tbl_project TO pep_admin;
+GRANT UPDATE, DELETE, INSERT, SELECT ON TABLE inventory_caep.tbl_project TO caep_entry_inventory;
+
+
+
+-- Table: inventory_caep.tbl_project_packlist
+CREATE SEQUENCE inventory_caep.tbl_project_packlist_id_seq
+    INCREMENT 1
+    START 1;
+
+CREATE TABLE IF NOT EXISTS inventory_caep.tbl_project_packlist
+(
+    id integer NOT NULL DEFAULT nextval('inventory_caep.tbl_project_packlist_id_seq'::regclass),
+    item_id integer,
+    project_id integer,
+    number_needed integer,
+    number_packed integer,
+    number_returned integer,
+    pack_container character varying(100) COLLATE pg_catalog."default",
+    pack_subcontainer character varying(100) COLLATE pg_catalog."default",
+    packlist_comments character varying(250) COLLATE pg_catalog."default",
+    CONSTRAINT tbl_project_packlist_pkey PRIMARY KEY (id)
+);
+
+ALTER TABLE IF EXISTS inventory_caep.tbl_project_packlist
+    OWNER to sa;
+GRANT ALL ON TABLE inventory_caep.tbl_project_packlist TO pep_admin;
+GRANT UPDATE, DELETE, INSERT, SELECT ON TABLE inventory_caep.tbl_project_packlist TO caep_entry_inventory;
