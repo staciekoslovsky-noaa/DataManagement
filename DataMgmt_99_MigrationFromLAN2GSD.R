@@ -12,16 +12,16 @@ googledrive::drive_auth()
 
 
 # --- 1. Configuration ---
-fromLAN <- "\\\\akc0ss-n086\\NMML_CHESS_Imagery"
-fromFolder <- "CulledHotspotImages"
-toShareDrive <- "NMFS MML PEP Survey Ice Seal Projects 2"
-toFolder <- "Survey_IceSeals_2016"
-subFolder <- "CulledHotspotImages"
+fromLAN <- "\\\\akc0ss-n086\\NMML_Polar_Imagery\\Surveys_HS\\Glacial\\Projects\\"
+fromFolder <- "Counts"
+toShareDrive <- "NMFS MML PEP Survey Harbor Seal Glacial"
+toFolder <- "Counts"
+#subFolder <- "2004"
 
 include_top_folder <- TRUE # TRUE = Create/use 'toFolder'
-create_subfolder <- TRUE # TRUE = Create/use 'subFolder' inside toFolder
+create_subfolder <- FALSE # TRUE = Create/use 'subFolder' inside toFolder
 
-manifest_file <- "filesFrom_CHESSImagery_CulledHotspotImages.csv"
+manifest_file <- "filesFrom_PolarImagery_SurveysHS_Glacial_Counts.csv"
 save_interval <- 5
 
 # Helper function to strip single quotes
@@ -33,10 +33,12 @@ sanitize_name <- function(x) {
 
 # --- 2. Identify Target Root on Shared Drive ---
 # Find the Shared Drive first
-sd_match <- shared_drive_find(pattern = toShareDrive)
+sd_match <- shared_drive_find(pattern = paste0("^", toShareDrive, "$"))
 
-if (nrow(sd_match) == 0) {
-  stop(str_glue("Shared Drive '{toShareDrive}' not found! Check permissions."))
+if (nrow(sd_match) != 1) {
+  stop(str_glue(
+    "Shared Drive '{toShareDrive}' not found or there are too many! Check permissions or figure your $*!+ out."
+  ))
 }
 
 shared_drive_id <- as_id(sd_match$id[1])
@@ -108,19 +110,21 @@ if (file_exists(manifest_path)) {
       checksum_match = NA,
       timestamp = as.POSIXct(NA)
     )
+
+  # MANDATORY CLEANING STEP:
+  # This ensures even an existing manifest is updated to use "Clean" names for Drive
+  manifest <- manifest %>%
+    mutate(
+      filename = sanitize_name(path_file(local_path)),
+      rel_dir = sanitize_name(path_dir(path_rel(
+        local_path,
+        start = local_full_path
+      )))
+    )
+
   write_csv(manifest, manifest_path)
 }
 
-# MANDATORY CLEANING STEP:
-# This ensures even an existing manifest is updated to use "Clean" names for Drive
-manifest <- manifest %>%
-  mutate(
-    filename = sanitize_name(path_file(local_path)),
-    rel_dir = sanitize_name(path_dir(path_rel(
-      local_path,
-      start = local_full_path
-    )))
-  )
 
 # --- 4. The Upload Engine ---
 # Create a cache to store folder IDs to avoid redundant API calls
