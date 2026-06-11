@@ -18,7 +18,7 @@ toShareDrive <- "NMFS MML PEP Survey Harbor Seal Glacial"
 toFolder <- "Counts"
 #subFolder <- "2004"
 
-include_top_folder <- TRUE # TRUE = Create/use 'toFolder'
+include_toFolder <- TRUE # TRUE = Create/use 'toFolder'
 create_subfolder <- FALSE # TRUE = Create/use 'subFolder' inside toFolder
 
 manifest_file <- "filesFrom_PolarImagery_SurveysHS_Glacial_Counts.csv"
@@ -43,26 +43,11 @@ if (nrow(sd_match) != 1) {
 
 shared_drive_id <- as_id(sd_match$id[1])
 
-# Determine the starting point on Google Drive
-# if (include_top_folder) {
-#   # Check if the 'toFolder' container exists, create if not
-#   target_root_obj <- drive_ls(shared_drive_id, pattern = toFolder) %>%
-#     filter(name == toFolder) %>%
-#     {
-#       if (nrow(.) > 0) . else drive_mkdir(toFolder, path = shared_drive_id)
-#     }
-# } else {
-#   # Upload directly to the root of the Shared Drive
-#   target_root_obj <- drive_get(shared_drive_id)
-# }
-
-# --- 2. Identify Target Root on Shared Drive ---
-
 # Start at the root of the Shared Drive
 current_target_id <- shared_drive_id
 
 # Logic for Top Folder
-if (include_top_folder) {
+if (include_toFolder) {
   top_match <- drive_ls(current_target_id, pattern = toFolder) %>%
     filter(name == toFolder)
   if (nrow(top_match) > 0) {
@@ -110,6 +95,27 @@ if (file_exists(manifest_path)) {
       checksum_match = NA,
       timestamp = as.POSIXct(NA)
     )
+  
+  # --- CRITICAL PATH LENGTH CHECK ---
+  # Check if any original network paths exceed the Windows 260-character limit
+  manifest <- manifest %>% 
+    mutate(path_length = nchar(as.character(local_path)))
+  
+  long_paths_count <- sum(manifest$path_length > 260)
+  
+  if (long_paths_count > 0) {
+    cat("\n🛑 MIGRATION HALTED: Path Length Violation!\n")
+    cat(str_glue("Found {long_paths_count} files with paths exceeding 260 characters.\n"))
+    cat("The raw, unmutated dataset is preserved in your environment as 'manifest'.\n")
+    cat("Run the following snippet in your console to view and export the problem folders:\n\n")
+    cat("  manifest %>% filter(path_length > 260) %>% select(path_length, local_path)\n\n")
+    
+    stop("Please fix these long folder paths on the AFSC LAN before running this script again.")
+  } else {
+    # If all clean, we can drop the helper column so it doesn't clutter the CSV
+    manifest <- manifest %>% select(-path_length)
+  }
+  # ----------------------------------
 
   # MANDATORY CLEANING STEP:
   # This ensures even an existing manifest is updated to use "Clean" names for Drive
