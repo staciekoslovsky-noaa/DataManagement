@@ -84,9 +84,39 @@ if (file_exists(manifest_path)) {
   manifest <- read_csv(manifest_path, show_col_types = FALSE)
 } else {
   message("Scanning network drive...")
-  # dir_info is much faster and cleaner than list.files
+
+  # 1. Grab raw info first without manipulating paths yet
   manifest <- dir_info(local_full_path, recurse = TRUE, type = "file") %>%
     select(local_path = path, size_bytes = size) %>%
+    mutate(path_length = nchar(as.character(local_path))) # Calculate length using base R
+
+  # 2. --- CRITICAL PATH LENGTH CHECK ---
+  # Check if any original network paths exceed the Windows 260-character limit
+  long_paths_count <- sum(manifest$path_length > 260)
+
+  if (long_paths_count > 0) {
+    cat("\n🛑 MIGRATION HALTED: Path Length Violation!\n")
+    cat(str_glue(
+      "Found {long_paths_count} files with paths exceeding 260 characters.\n"
+    ))
+    cat(
+      "The raw, unmutated dataset is preserved in your environment as 'manifest'.\n"
+    )
+    cat(
+      "Run the following snippet in your console to view and export the problem folders:\n\n"
+    )
+    cat(
+      "  manifest %>% filter(path_length > 260) %>% select(path_length, local_path)\n\n"
+    )
+
+    stop(
+      "Please fix these long folder paths on the AFSC LAN before running this script again."
+    )
+  }
+
+  # 3. Safe to proceed with fs operations since all paths are clean (< 260 chars)
+  manifest <- manifest %>%
+    select(-path_length) %>% # Drop helper column so it doesn't clutter the CSV
     mutate(
       rel_path = path_rel(local_path, start = local_full_path),
       rel_dir = path_dir(rel_path),
@@ -95,42 +125,17 @@ if (file_exists(manifest_path)) {
       checksum_match = NA,
       timestamp = as.POSIXct(NA)
     )
-  
-  # --- CRITICAL PATH LENGTH CHECK ---
-  # Check if any original network paths exceed the Windows 260-character limit
-  manifest <- manifest %>% 
-    mutate(path_length = nchar(as.character(local_path)))
-  
-  long_paths_count <- sum(manifest$path_length > 260)
-  
-  if (long_paths_count > 0) {
-    cat("\n🛑 MIGRATION HALTED: Path Length Violation!\n")
-    cat(str_glue("Found {long_paths_count} files with paths exceeding 260 characters.\n"))
-    cat("The raw, unmutated dataset is preserved in your environment as 'manifest'.\n")
-    cat("Run the following snippet in your console to view and export the problem folders:\n\n")
-    cat("  manifest %>% filter(path_length > 260) %>% select(path_length, local_path)\n\n")
-    
-    stop("Please fix these long folder paths on the AFSC LAN before running this script again.")
-  } else {
-    # If all clean, we can drop the helper column so it doesn't clutter the CSV
-    manifest <- manifest %>% select(-path_length)
-  }
-  # ----------------------------------
 
   # MANDATORY CLEANING STEP:
-  # This ensures even an existing manifest is updated to use "Clean" names for Drive
+  # This ensures the manifest is updated to use "Clean" names for Google Drive
   manifest <- manifest %>%
     mutate(
-      filename = sanitize_name(path_file(local_path)),
-      rel_dir = sanitize_name(path_dir(path_rel(
-        local_path,
-        start = local_full_path
-      )))
+      filename = sanitize_name(filename),
+      rel_dir = sanitize_name(rel_dir)
     )
 
   write_csv(manifest, manifest_path)
 }
-
 
 # --- 4. The Upload Engine ---
 # Create a cache to store folder IDs to avoid redundant API calls
